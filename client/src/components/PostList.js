@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
+import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
 import '../assets/styles/PostList.css'
@@ -15,8 +16,10 @@ function PostList() {
     return (
       <div className="PostList">
         {/* <h3 className="title">HALP ME</h3> */}
-        <button>게시글 작성</button>
-        <Table responsive>
+        <div className="postlist-button-container">
+          <Button variant="secondary">게시글 작성</Button>{' '}
+        </div>
+        <Table responsive bordered>
           <thead>
             <tr>
               <th>#</th>
@@ -32,7 +35,7 @@ function PostList() {
               posts.reverse().map((post) => {
                 return (
                   <tr key={post.postid} onClick={() => toDetail(post.postid)}>
-                    <td>{post.postid}</td>
+                    <td className="">{post.postid}</td>
                     <td>{post.category}</td>
                     <td >{post.title}</td>
                     <td>{post.author}</td>

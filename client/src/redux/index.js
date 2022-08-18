@@ -1,13 +1,13 @@
-import { combineReducers, createStore } from 'redux'
+import { createStore } from 'redux'
 import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';	// redux-persist
+import storage from 'redux-persist/lib/storage';
 
 import reducer from './reducers'
 
 const persistConfig = {
     key: 'root',
     storage,
-} // redux-persist
+}
 
 // let rootReducer = combineReducers({
 //     reducer

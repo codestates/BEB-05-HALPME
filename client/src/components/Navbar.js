@@ -20,10 +20,10 @@ function Navbar({ }) {
                         <Link to="/market" className="nav-item">Market</Link>
                         <Link to="/mypage" className="nav-item">MyPage</Link>
                         <Link to="/signin">
-                            <button className="nav-item-btn btn color-bg">Login</button>
+                            <button className="nav-item-btn color-bg btn">Login</button>
                         </Link>
                         <Link to="/signup">
-                            <button className="nav-item-btn btn color-bg">Signup</button>
+                            <button className="nav-item-btn color-bg btn">Signup</button>
                         </Link>
                     </div>
                 </div>

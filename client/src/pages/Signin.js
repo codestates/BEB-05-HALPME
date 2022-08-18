@@ -43,6 +43,7 @@ function Signin() {
           id: userId,
           password: ciphertext,
       }
+      console.log(params)
       axios.post()
           .then(() => {
               // 로그인 처리

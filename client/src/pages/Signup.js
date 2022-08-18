@@ -62,6 +62,7 @@ function Signup() {
                 password: ciphertext,
                 nickname: nickname
             }
+            console.log(params)
             axios.post()
                 .then(() => {
                     // 로그인 요청
