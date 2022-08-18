@@ -7,10 +7,6 @@ function Navbar({ }) {
     // const account = useSelector((state) => state.account.address);
     // const dispatch = useDispatch()
 
-    // const connectWallet = async () => {
-        // dispatch(accountActions.fetchAccount());
-    // }
-
     return (
         <div className="Navbar">
             <nav className="navbar navbar-expand-lg bg-light">
@@ -22,7 +18,12 @@ function Navbar({ }) {
                         <Link to="/" className="nav-item">Home</Link>
                         <Link to="/market" className="nav-item">Market</Link>
                         <Link to="/mypage" className="nav-item">MyPage</Link>
-                        <button className="btn btn-outline-success" type="submit">로그인</button>
+                        <Link to="/signin">
+                            <button className="nav-item-btn btn color-bg">Signin</button>
+                        </Link>
+                        <Link to="/signup">
+                            <button className="nav-item-btn btn color-bg">Signup</button>
+                        </Link>
                     </div>
                 </div>
             </nav>
