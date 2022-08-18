@@ -14,7 +14,7 @@ function Home() {
   return (
     <div className="Home">
       <div className="post-create-btn">
-        <Button onClick={toPostCreate} variant="secondary">게시글 작성</Button>{' '}
+        <Button id="post-create-btn" onClick={toPostCreate} variant="secondary">게시글 작성</Button>{' '}
       </div>
       <PostList />
     </div>

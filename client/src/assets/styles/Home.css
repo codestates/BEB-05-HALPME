@@ -7,3 +7,7 @@
     margin-bottom: 2rem;
     text-align: right;
 }
+#post-create-btn {
+    background: #0F4C81;
+    border: none;
+}

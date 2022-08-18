@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from 'react-redux';
 
 import Pagination from 'react-bootstrap/Pagination';
-
+import '../assets/styles/Pagebar.css'
 
 function Pagebar({ getPage, limit }) {
     let [page, setPage] = useState(1) // 현재 페이지
@@ -20,16 +20,16 @@ function Pagebar({ getPage, limit }) {
       }
     return (
         <Pagination className="Pagination justify-content-center">
-            <Pagination.First className="pagination-item" onClick={() => movePage(1)} />
+            <Pagination.First className="pagination-item" id="pagination-item" onClick={() => movePage(1)} />
             {
             pages.map(pg => {
-                if (pg === page) return <Pagination.Item className={`pagination-item pagination-item-${pg}`} key={pg} onClick={() => movePage(pg)} active >{pg}</Pagination.Item>
-                else return <Pagination.Item className={`pagination-item pagination-item-${pg}`} key={pg} onClick={() => movePage(pg)} >{pg}</Pagination.Item>
+                if (pg === page) return <Pagination.Item className={`pagination-item pagination-item-${pg}`} id="pagination-item-active" key={pg} onClick={() => movePage(pg)} active >{pg}</Pagination.Item>
+                else return <Pagination.Item className={`pagination-item pagination-item-${pg}`} id="pagination-item" key={pg} onClick={() => movePage(pg)} >{pg}</Pagination.Item>
             }
             )}
 
             {/* <Pagination.Ellipsis /> */}
-            <Pagination.Last onClick={() => movePage(pages.length)} />
+            <Pagination.Last id="pagination-item" onClick={() => movePage(pages.length)} />
         </Pagination>
     );
 }
