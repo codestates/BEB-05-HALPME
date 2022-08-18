@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // pages
 import Home from './pages/Home';
 import Market from './pages/Market';
-import Write from './pages/Write';
-import Detail from './pages/Detail';
+import PostCreate from './pages/PostCreate';
+import PostDetail from './pages/PostDetail';
 import MyPage from './pages/MyPage';
 import Signin from './pages/Signin'
 import Signup from './pages/Signup';
@@ -22,9 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/market" element={<Market />} />
-          <Route path="write" element={<Write />} />
-          <Route path="/detail" element={<Detail />} />
-            <Route path=":id" />
+          <Route path="/create" element={<PostCreate />} />
+          <Route path="/detail/:id" element={<PostDetail />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />

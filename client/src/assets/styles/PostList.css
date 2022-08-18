@@ -1,0 +1,11 @@
+.PostList {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+
+tbody > tr:hover {
+    background: #F0F0F0;
+    cursor: pointer;
+}
