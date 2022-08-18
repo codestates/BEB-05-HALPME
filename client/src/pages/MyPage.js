@@ -4,7 +4,7 @@ function MyPage() {
         MyPage
       </div>
     );
-  }
+}
   
-  export default MyPage;
+export default MyPage;
   

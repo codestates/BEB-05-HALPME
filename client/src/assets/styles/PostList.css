@@ -1,14 +1,31 @@
 .PostList {
     text-align: center;
-    margin: auto;
-    width: 80%;
 }
-.postlist-button-container {
-    margin-bottom: 2rem;
-    text-align: right;
-}
-
 tbody > tr:hover {
     background: #F0F0F0;
+    cursor: pointer;
+}
+.td-id {
+    width: 5%;
+}
+.td-category {
+    width: 15%;
+}
+.td-title {
+    width: 45%;
+}
+.td-author {
+    width: 15%;
+}
+.td-created-at {
+    width: 20%
+}
+
+.pagination {
+    color: #0F4C81;
+}
+
+.pagination-item {
+    color: #0F4C81;
     cursor: pointer;
 }
