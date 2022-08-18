@@ -3,6 +3,7 @@ import '../assets/styles/Navbar.css';
 // import { useSelector, useDispatch } from 'react-redux'; // redux
 // import { accountActions } from "../redux/accountSlice";
 
+// eslint-disable-next-line
 function Navbar({ }) {
     // const account = useSelector((state) => state.account.address);
     // const dispatch = useDispatch()
@@ -19,7 +20,7 @@ function Navbar({ }) {
                         <Link to="/market" className="nav-item">Market</Link>
                         <Link to="/mypage" className="nav-item">MyPage</Link>
                         <Link to="/signin">
-                            <button className="nav-item-btn btn color-bg">Signin</button>
+                            <button className="nav-item-btn btn color-bg">Login</button>
                         </Link>
                         <Link to="/signup">
                             <button className="nav-item-btn btn color-bg">Signup</button>
