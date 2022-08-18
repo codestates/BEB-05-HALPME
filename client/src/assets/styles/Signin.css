@@ -1,0 +1,8 @@
+.Signin {
+    text-align: center;
+    margin: auto;
+    width: 40%;
+}
+.validation-msg {
+    color: red;
+}
