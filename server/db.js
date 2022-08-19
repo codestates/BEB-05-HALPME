@@ -1,7 +1,7 @@
 import db from "./models/index";
 
 db.sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("DB connected");
   })

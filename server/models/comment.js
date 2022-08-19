@@ -9,7 +9,7 @@ export default (sequelize, DataTypes) => {
         autoIncrement: true,
       },
       contents: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       status: {
