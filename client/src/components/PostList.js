@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import Badge from 'react-bootstrap/Badge';
 import Table from 'react-bootstrap/Table';
 
 import Pagebar from "./Pagebar";
@@ -27,24 +28,46 @@ function PostList() {
       <Table className="post-list-table" responsive bordered>
         <thead>
           <tr>
-            <th>#</th>
-            <th>주제</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>create_at</th>
+            <th className="td-id">#</th>
+            <th className="td-category">주제</th>
+            <th className="td-title">제목</th>
+            <th className="td-author">작성자</th>
+            <th className="td-status">상태</th>
+            <th className="td-created-at">작성일</th>
           </tr>
         </thead>
         <tbody>
           {
             posts.map((post) => {
+              if (post.status)
               return (
                 <tr key={post.postid} onClick={() => toPostDetail(post.postid)}>
                   <td className="td-id">{post.postid}</td>
                   <td className="td-category">{post.category}</td>
                   <td className="td-title" >{post.title}</td>
                   <td className="td-author">{post.author}</td>
+                  <td className="td-status">
+                    <Badge pill bg="primary">
+                      답변완료
+                    </Badge>{' '}
+                  </td>
                   <td className="td-created-at">{post.created_at}</td>
                 </tr>
+              )
+              else
+              return (
+                <tr key={post.postid} onClick={() => toPostDetail(post.postid)}>
+                <td className="td-id">{post.postid}</td>
+                <td className="td-category">{post.category}</td>
+                <td className="td-title" >{post.title}</td>
+                <td className="td-author">{post.author}</td>
+                <td className="td-status">
+                  <Badge pill bg="secondary">
+                    답변대기
+                  </Badge>{' '}
+                </td>
+                <td className="td-created-at">{post.created_at}</td>
+              </tr>
               )
             })
           }

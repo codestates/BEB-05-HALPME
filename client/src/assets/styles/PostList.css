@@ -12,10 +12,13 @@ tbody > tr:hover {
     width: 15%;
 }
 .td-title {
-    width: 45%;
+    width: 44%;
 }
 .td-author {
-    width: 15%;
+    width: 10%;
+}
+.td-status {
+    width: 10%;
 }
 .td-created-at {
     width: 20%
