@@ -11,6 +11,7 @@ import Signup from './pages/Signup';
 import NotFound from './pages/NotFound';
 // components
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import './assets/styles/App.css';
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

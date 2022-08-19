@@ -2,7 +2,7 @@
     text-align: center;
 }
 tbody > tr:hover {
-    background: #F0F0F0;
+    background: #F4F7F7;
     cursor: pointer;
 }
 .td-id {
@@ -20,15 +20,9 @@ tbody > tr:hover {
 .td-status {
     width: 10%;
 }
+#td-status-btn-1 {
+    background: #AACFD0;
+}
 .td-created-at {
     width: 20%
-}
-
-.pagination {
-    color: #0F4C81;
-}
-
-.pagination-item {
-    color: #0F4C81;
-    cursor: pointer;
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import Badge from 'react-bootstrap/Badge';
 import Table from 'react-bootstrap/Table';
 
 import Pagebar from "./Pagebar";
@@ -47,9 +46,7 @@ function PostList() {
                   <td className="td-title" >{post.title}</td>
                   <td className="td-author">{post.author}</td>
                   <td className="td-status">
-                    <Badge pill bg="primary">
-                      답변완료
-                    </Badge>{' '}
+                    <span id="td-status-btn-1" className="badge rounded-pill">답변완료</span>
                   </td>
                   <td className="td-created-at">{post.created_at}</td>
                 </tr>
@@ -62,9 +59,7 @@ function PostList() {
                 <td className="td-title" >{post.title}</td>
                 <td className="td-author">{post.author}</td>
                 <td className="td-status">
-                  <Badge pill bg="secondary">
-                    답변대기
-                  </Badge>{' '}
+                  <span className="badge rounded-pill text-bg-secondary">답변대기</span>
                 </td>
                 <td className="td-created-at">{post.created_at}</td>
               </tr>

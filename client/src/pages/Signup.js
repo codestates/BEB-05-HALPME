@@ -113,7 +113,7 @@ function Signup() {
                 }
                 <br/>
                 <div className="d-grid gap-1">
-                    <Button variant="secondary" onClick={signup}>
+                    <Button id="signup-btn" onClick={signup}>
                         Sign Up
                     </Button>
                 </div>

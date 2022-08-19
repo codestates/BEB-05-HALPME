@@ -1,0 +1,21 @@
+.PostCreate {
+    margin: auto;
+    text-align: left;
+    width: 60%;
+}
+.post-create-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 0.5rem;
+    text-align: left;
+}
+#post-create-content-intpu {
+    height: 9rem;
+}
+.validation-msg {
+    color: red;
+}
+#post-create-btn {
+    background: #79A8A9;
+    border: none;
+}

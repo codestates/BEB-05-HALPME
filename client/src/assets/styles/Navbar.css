@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
 
 .navbar {
-    background: #f7f7f7;
+    background: #F4F7F7;
     height: 4rem;
 }
 .navbar-brand {
@@ -15,10 +15,10 @@
     text-decoration: none;
 }
 .nav-item:hover {
-    color: #0F4C81;
+    color: #79A8A9;
 }
 #nav-item-btn {
-    background: #0F4C81;
+    background: #79A8A9;
     border: none;
     /* border-radius: 8px; */
     color: white;
@@ -28,6 +28,6 @@
 }
 #nav-item-btn:hover {
     background: #F0F0F0;
-    color: #0F4C81;
-    outline: #0F4C81;
+    color: #79A8A9;
+    outline: #79A8A9;
 }

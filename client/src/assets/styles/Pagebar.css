@@ -1,6 +1,11 @@
+.pagination {
+    color: #79A8A9;
+}
 #pagination-item {
     color: black;
+    cursor: pointer;
 }
 #pagination-item-active {
-    color: white;
+    background: #79A8A9;
+    border: none;
 }
