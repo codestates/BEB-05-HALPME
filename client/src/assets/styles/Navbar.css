@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
 
-.navbar {
-    background: #F4F7F7;
+#navbar {
+    background: white;
     height: 4rem;
 }
 .navbar-brand {

@@ -76,7 +76,7 @@ function PostCreate() {
 
     return (
       <div className="PostCreate">
-        <h1 className="post-create-title">게시글 작성</h1>
+        <h2 className="post-create-title">질문 작성하기</h2>
         <Container className="panel">
           <Form>
             <Form.Group as={Row} className="mb-3">
@@ -111,7 +111,7 @@ function PostCreate() {
                 </Button>
             </div>
           </Form>
-      </Container>
+        </Container>
       </div>
     );
 }

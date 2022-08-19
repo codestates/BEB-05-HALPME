@@ -80,45 +80,49 @@ function Signup() {
     }
     return (
       <div className="Signup">
-        <h1 className="title">회원가입</h1>
-        <Container className="panel">
-            <Form>
-                <Form.Group as={Row} className="mb-3">
-                    <Col sm>
-                        <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} />
-                    </Col>
-                </Form.Group>
+        <div className="Form-Sign-1">
+            <div className="Form-Sign-2">
+                <h1 className="title">회원가입</h1>
+                <Container className="panel">
+                    <Form>
+                        <Form.Group as={Row} className="mb-3">
+                            <Col sm>
+                                <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} />
+                            </Col>
+                        </Form.Group>
 
-                <Form.Group as={Row} className="mb-3">
-                    <Col sm>
-                        <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
-                    </Col>
-                </Form.Group>
+                        <Form.Group as={Row} className="mb-3">
+                            <Col sm>
+                                <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
+                            </Col>
+                        </Form.Group>
 
-                <Form.Group as={Row} className="mb-3">   
-                    <Col sm>
-                        <Form.Control type="password" placeholder="Confirm Password" onChange={onChangePasswordConf} />
-                    </Col>
-                </Form.Group>
+                        <Form.Group as={Row} className="mb-3">   
+                            <Col sm>
+                                <Form.Control type="password" placeholder="Confirm Password" onChange={onChangePasswordConf} />
+                            </Col>
+                        </Form.Group>
 
-                <Form.Group as={Row} className="mb-3">
-                    <Col sm>
-                        <Form.Control type="text" placeholder="Nickname" onChange={onChangeNickname} />
-                    </Col>
-                </Form.Group>
-                {
-                    validationMsg.length >= 1
-                    ? <div className="validation-msg">{ validationMsg }</div>
-                    : <span></span>
-                }
-                <br/>
-                <div className="d-grid gap-1">
-                    <Button id="signup-btn" onClick={signup}>
-                        Sign Up
-                    </Button>
-                </div>
-            </Form>
-        </Container>
+                        <Form.Group as={Row} className="mb-3">
+                            <Col sm>
+                                <Form.Control type="text" placeholder="Nickname" onChange={onChangeNickname} />
+                            </Col>
+                        </Form.Group>
+                        {
+                            validationMsg.length >= 1
+                            ? <div className="validation-msg">{ validationMsg }</div>
+                            : <span></span>
+                        }
+                        <br/>
+                        <div className="d-grid gap-1">
+                            <Button id="signup-btn" onClick={signup}>
+                                Sign Up
+                            </Button>
+                        </div>
+                    </Form>
+                </Container>
+            </div>
+        </div>
       </div>
     );
 }

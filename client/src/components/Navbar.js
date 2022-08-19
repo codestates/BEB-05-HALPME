@@ -10,7 +10,7 @@ function Navbar({ }) {
 
     return (
         <div className="Navbar">
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg" id="navbar">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         HALP ME

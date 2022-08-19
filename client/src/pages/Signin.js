@@ -57,35 +57,39 @@ function Signin() {
   }
   return (
     <div className="Signin">
-      <h1 className="title">로그인</h1>
-      <Container className="panel">
-          <Form>
-              <Form.Group as={Row} className="mb-3">
-                  <Col sm>
-                      <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} />
-                  </Col>
-              </Form.Group>
+      <div className="Form-Sign-1">
+        <div className="Form-Sign-2">
+          <h1 className="title">로그인</h1>
+          <Container className="panel">
+              <Form>
+                  <Form.Group as={Row} className="mb-3">
+                      <Col sm>
+                          <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} />
+                      </Col>
+                  </Form.Group>
 
-              <Form.Group as={Row} className="mb-3">
-                  <Col sm>
-                      <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
-                  </Col>
-              </Form.Group>
+                  <Form.Group as={Row} className="mb-3">
+                      <Col sm>
+                          <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
+                      </Col>
+                  </Form.Group>
 
-              {
-                    validationMsg.length >= 1
-                    ? <div className="validation-msg">{ validationMsg }</div>
-                    : <span></span>
-              }
-              <br/>
+                  {
+                        validationMsg.length >= 1
+                        ? <div className="validation-msg">{ validationMsg }</div>
+                        : <span></span>
+                  }
+                  <br/>
 
-              <div className="d-grid gap-1">
-                  <Button id="signin-btn" onClick={signin} >
-                      Login
-                  </Button>
-              </div>
-          </Form>
-      </Container>
+                  <div className="d-grid gap-1">
+                      <Button id="signin-btn" onClick={signin} >
+                          Login
+                      </Button>
+                  </div>
+              </Form>
+          </Container>
+        </div>
+      </div>
     </div>
   );
 }

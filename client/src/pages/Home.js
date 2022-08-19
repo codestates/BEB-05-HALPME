@@ -7,6 +7,8 @@ import '../assets/styles/Home.css'
 function Home() {
   let navigate = useNavigate()
 
+
+  // functions
   let toPostCreate = () => {
     navigate('/create', { replace: true })
   }

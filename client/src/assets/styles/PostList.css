@@ -1,9 +1,14 @@
 .PostList {
     text-align: center;
 }
+.post-list-table {
+    background: white;
+    border-radius: .5rem;
+}
 tbody > tr:hover {
     background: #F4F7F7;
     cursor: pointer;
+    
 }
 .td-id {
     width: 5%;

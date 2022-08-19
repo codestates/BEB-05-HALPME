@@ -7,7 +7,7 @@ import Pagebar from "./Pagebar";
 import '../assets/styles/PostList.css'
 
 function PostList() {
-  let limit = 3   // 페이지 당 게시글 수
+  let limit = 5   // 페이지 당 게시글 수
   let postList = useSelector((state) => state.posts)
   let [posts, setPosts] = useState(postList.slice(0, limit))
 
@@ -23,8 +23,8 @@ function PostList() {
 
   return (
     <div className="PostList">
-      {/* <h3 className="title">HALP ME</h3> */}
-      <Table className="post-list-table" responsive bordered>
+      {/* borded 옵션 있음 */}
+      <Table className="post-list-table" responsive>
         <thead>
           <tr>
             <th className="td-id">#</th>
