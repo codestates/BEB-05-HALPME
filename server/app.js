@@ -6,9 +6,12 @@
 import dotenv from "dotenv";
 import express from "express";
 import db from "./db"; // ORM 연결
+import cors from "cors";
 
 // import for route
-import indexRouter from "./routes/index";
+import homeRouter from "./routes/home";
+import apiRouter from "./routes/api";
+import userRouter from "./routes/user";
 
 // config
 dotenv.config();
@@ -19,6 +22,9 @@ app.listen(process.env.PORT, async () => {
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // routes
-app.use("/", indexRouter);
+app.use("/", homeRouter);
+app.use("/api", apiRouter);
+app.use("/user", userRouter);

@@ -33,7 +33,7 @@ CREATE TABLE `metadata` (
 CREATE TABLE `post` (
   `postId` int PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `contents` varchar(255) NOT NULL,
+  `contents` text NOT NULL,
   `category` varchar(255) NOT NULL,
   `status` boolean NOT NULL DEFAULT false,
   `author` varchar(255) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `comment` (
   `commentId` int PRIMARY KEY AUTO_INCREMENT,
   `postId` int,
   `author` varchar(255) NOT NULL,
-  `contents` varchar(255) NOT NULL,
+  `contents` text NOT NULL,
   `status` boolean NOT NULL DEFAULT false,
   `created_at` datetime NOT NULL DEFAULT "now()",
   `updated_at` datetime NOT NULL DEFAULT "now()"
