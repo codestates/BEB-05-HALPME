@@ -326,7 +326,7 @@ const initialState = {
 // actions
 export const SET_POSTS = "SET_POSTS"
 
-const reducer = (state = initialState, action) => {
+const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_POSTS:
             return [...state, action.data]
@@ -334,4 +334,4 @@ const reducer = (state = initialState, action) => {
             return state
     }
 }
-export default reducer
+export default postReducer

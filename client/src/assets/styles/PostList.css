@@ -1,7 +1,7 @@
 .PostList {
     text-align: center;
 }
-.post-list-table {
+.postlist-table {
     background: white;
     border-radius: .5rem;
 }
@@ -10,24 +10,24 @@ tbody > tr:hover {
     cursor: pointer;
     
 }
-.td-id {
+.postlist-td-id {
     width: 5%;
 }
-.td-category {
+.postlist-td-category {
     width: 15%;
 }
-.td-title {
-    width: 44%;
+.postlist-td-title {
+    width: 40%;
 }
-.td-author {
+.postlist-td-author {
     width: 10%;
 }
-.td-status {
+.postlist-td-status {
     width: 10%;
 }
-#td-status-btn-1 {
+#postlist-td-status-btn-1 {
     background: #AACFD0;
 }
-.td-created-at {
+.postlist-td-created-at {
     width: 20%
 }

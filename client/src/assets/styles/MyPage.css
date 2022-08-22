@@ -1,0 +1,35 @@
+.MyPage {
+    margin: auto;
+    width: 95%;
+}
+.mypage-header {
+    margin: 2rem 0;
+    text-align: left;
+}
+.mypage-header-name {
+    margin-bottom: 1rem;
+}
+.mypage-header-address-image {
+    width: 0.9%;
+}
+.mypage-token-title {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+.mypage-token-title-num {
+    text-decoration: underline;
+}
+.mypage-posts-title {
+    margin: 2rem 0;
+}
+.mypage-posts-title {
+    text-align: left;
+}
+.mypage-nft {
+    margin: 0 2rem;
+    padding-bottom: 5rem;
+}
+.mypage-nft-title {
+    margin-bottom: 1rem;
+    text-align: left;
+}

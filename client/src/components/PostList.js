@@ -8,7 +8,7 @@ import '../assets/styles/PostList.css'
 
 function PostList() {
   let limit = 5   // 페이지 당 게시글 수
-  let postList = useSelector((state) => state.posts)
+  let postList = useSelector((state) => state.posts.posts)
   let [posts, setPosts] = useState(postList.slice(0, limit))
 
   let navigate = useNavigate()
@@ -24,15 +24,15 @@ function PostList() {
   return (
     <div className="PostList">
       {/* borded 옵션 있음 */}
-      <Table className="post-list-table" responsive>
+      <Table className="postlist-table" responsive>
         <thead>
           <tr>
-            <th className="td-id">#</th>
-            <th className="td-category">주제</th>
-            <th className="td-title">제목</th>
-            <th className="td-author">작성자</th>
-            <th className="td-status">상태</th>
-            <th className="td-created-at">작성일</th>
+            <th className="postlist-td-id">#</th>
+            <th className="postlist-td-category">주제</th>
+            <th className="postlist-td-title">제목</th>
+            <th className="postlist-td-author">작성자</th>
+            <th className="postlist-td-status">상태</th>
+            <th className="postlist-td-created-at">작성일</th>
           </tr>
         </thead>
         <tbody>
@@ -41,27 +41,27 @@ function PostList() {
               if (post.status)
               return (
                 <tr key={post.postid} onClick={() => toPostDetail(post.postid)}>
-                  <td className="td-id">{post.postid}</td>
-                  <td className="td-category">{post.category}</td>
-                  <td className="td-title" >{post.title}</td>
-                  <td className="td-author">{post.author}</td>
-                  <td className="td-status">
-                    <span id="td-status-btn-1" className="badge rounded-pill">답변완료</span>
+                  <td className="postlist-td-id">{post.postid}</td>
+                  <td className="postlist-td-category">{post.category}</td>
+                  <td className="postlist-td-title" >{post.title}</td>
+                  <td className="postlist-td-author">{post.author}</td>
+                  <td className="postlist-td-status">
+                    <span id="postlist-td-status-btn-1" className="badge rounded-pill" title='질문이 종료되었습니다.'>답변완료</span>
                   </td>
-                  <td className="td-created-at">{post.created_at}</td>
+                  <td className="postlist-td-created-at">{post.created_at}</td>
                 </tr>
               )
               else
               return (
                 <tr key={post.postid} onClick={() => toPostDetail(post.postid)}>
-                <td className="td-id">{post.postid}</td>
-                <td className="td-category">{post.category}</td>
-                <td className="td-title" >{post.title}</td>
-                <td className="td-author">{post.author}</td>
-                <td className="td-status">
-                  <span className="badge rounded-pill text-bg-secondary">답변대기</span>
+                <td className="postlist-td-id">{post.postid}</td>
+                <td className="postlist-td-category">{post.category}</td>
+                <td className="postlist-td-title" >{post.title}</td>
+                <td className="postlist-td-author">{post.author}</td>
+                <td className="postlist-td-status">
+                  <span className="badge rounded-pill text-bg-secondary" title='답변이 없거나 채틱된 답변이 없습니다.'>답변대기</span>
                 </td>
-                <td className="td-created-at">{post.created_at}</td>
+                <td className="postlist-td-created-at">{post.created_at}</td>
               </tr>
               )
             })
@@ -75,4 +75,3 @@ function PostList() {
 }
   
 export default PostList;
-  
