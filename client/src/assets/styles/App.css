@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.color {
+  color: #0F4C81;
+}
+
+.color-bg {
+  background-color: #0F4C81;
+}
+
+.title {
+  margin: 2rem;
+}

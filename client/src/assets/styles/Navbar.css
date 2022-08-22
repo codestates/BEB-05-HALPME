@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+
+.navbar {
+    background: #f7f7f7;
+    height: 4rem;
+}
+.navbar-brand {
+    font-family: 'DynaPuff', cursive; 
+    margin-left: 1rem;
+}
+.nav-item {
+    color: black;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+.nav-item:hover {
+    color: #0F4C81;
+}
+.nav-item-btn {
+    background: #0F4C81;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    outline: none;
+}

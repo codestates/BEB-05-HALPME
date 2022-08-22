@@ -1,0 +1,14 @@
+.PostList {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+.postlist-button-container {
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+tbody > tr:hover {
+    background: #F0F0F0;
+    cursor: pointer;
+}

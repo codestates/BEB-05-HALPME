@@ -17,10 +17,6 @@ export default (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
       },
-      address: {
-        type: DataTypes.CHAR(32),
-        allowNull: false,
-      },
       role: {
         type: DataTypes.INTEGER,
         allowNull: false,
