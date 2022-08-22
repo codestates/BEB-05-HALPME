@@ -35,7 +35,7 @@ function Signin() {
         return true
     }
     return false
-}
+  }
   let signin = () => {
     if (isValidate()) {
       let ciphertext = crypto.AES.encrypt(password, process.env.REACT_APP_SECRET_KEY).toString();

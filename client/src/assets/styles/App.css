@@ -28,6 +28,14 @@
 .title {
   margin-bottom: 2rem;
 }
+
+.stop-dragging {
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 /* #F4F7F7 */
 /* #AACFD0 */
 /* #79A8A9 */
