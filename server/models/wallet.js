@@ -4,7 +4,7 @@ export default (sequelize, DataTypes) => {
   Wallet.init(
     {
       address: {
-        type: DataTypes.CHAR(32),
+        type: DataTypes.CHAR(64),
         primaryKey: true,
       },
       balance: {
