@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
 import crypto from 'crypto-js';
-import { Form, Button, Row, Col, Container } from "react-bootstrap"
-import '../assets/styles/Signup.css';
+import { Form, Row, Col, Container } from "react-bootstrap"
+import { signupAPI } from "../../apis/account";
+import '../../assets/styles/account/Signup.css';
 
 function Signup() {
     // data
@@ -53,20 +53,10 @@ function Signup() {
     let signup = () => {
         if(isValidate()) {
             let ciphertext = crypto.AES.encrypt(password, process.env.REACT_APP_SECRET_KEY).toString();
-            let params = {
-                id: userId,
-                password: ciphertext,
-                nickname: nickname
-            }
-            console.log(params)
-            axios.post()
-                .then(() => {
-                    // 로그인 요청
-                    axios.post()
-                        .then(() => {
-                            // 홈으로 이동
-                            navigate("/", { replace: true });
-                        })
+            signupAPI(userId, ciphertext, nickname)
+                .then((res) => {
+                    console.log(res.data)
+                    // navigate("/", { replace: true });
                 })
                 .catch((err) => {
                     console.log(err)
@@ -112,11 +102,7 @@ function Signup() {
                             : <span></span>
                         }
                         <br/>
-                        <div className="d-grid gap-1">
-                            <Button id="signup-btn" onClick={signup}>
-                                Sign Up
-                            </Button>
-                        </div>
+                        <button className="btn" id="main-btn-lg" onClick={signup}>Sign Up</button>
                     </Form>
                 </Container>
             </div>

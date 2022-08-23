@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import crypto from 'crypto-js';
-import { Form, Button, Row, Col, Container } from "react-bootstrap"
-import '../assets/styles/Signin.css';
+import { Form, Row, Col, Container } from "react-bootstrap"
+import '../../assets/styles/account/Signin.css';
 
 function Signin() {
   // data
@@ -78,12 +78,7 @@ function Signin() {
                         : <span></span>
                   }
                   <br/>
-
-                  <div className="d-grid gap-1">
-                      <Button id="signin-btn" onClick={signin} >
-                          Login
-                      </Button>
-                  </div>
+                  <button className="btn" id="main-btn-lg" onClick={signin}>Login</button>
               </Form>
           </Container>
         </div>

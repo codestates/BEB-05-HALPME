@@ -3,10 +3,12 @@
     border-radius: 1rem;
     padding: 1rem;
 }
-.comment-author {
+.comment-title {
+    margin-bottom: .1rem;
+}
+.comment-writer {
     color: #1F4E5F;
     font-weight: bold;
-    margin-bottom: .5rem;
 }
 .comment-contents {
     margin-bottom: .5rem;
@@ -15,6 +17,5 @@
     padding: 0.5rem;
 }
 #comment-highlight {
-    /* background: #ffdf40; */
-    background: #AACFD0;
+    background: var(--color-yellow);
 }

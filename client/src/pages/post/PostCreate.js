@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
-import {Form, Button, Row, Col, Container} from 'react-bootstrap'
-import '../assets/styles/PostCreate.css'
+import {Form, Row, Col, Container} from 'react-bootstrap'
+import '../../assets/styles/post/PostCreate.css'
 
 function PostCreate() {
   // data
@@ -45,7 +45,7 @@ function PostCreate() {
       return false
   }
 
-  let create = () => {
+  let createPost = () => {
       if(isValidate()) {
         let contentsTransformed = contents.replace(/(?:\r\n|\r|\n)/g, '<br />') // 줄바꿈에 대한 처리
         let params = {
@@ -60,7 +60,7 @@ function PostCreate() {
           .then((res) => {
             // id 값 받아오기
             let id = res.data
-            navigate(`/detail/${id}`, { replace: true })
+            // navigate(`/detail/${id}`, { replace: true })
           })
           .catch((err) => {
             console.log(err)
@@ -72,7 +72,7 @@ function PostCreate() {
   // views
   return (
     <div className="PostCreate">
-      <h2 className="post-create-title">질문 작성하기</h2>
+      <h2 className="post-create-title title">질문 작성하기</h2>
       <Container className="panel">
         <Form>
           <Form.Group as={Row} className="mb-3">
@@ -100,12 +100,7 @@ function PostCreate() {
                 : <span></span>
           }
           <br/>
-
-          <div className="d-grid gap-1">
-              <Button id="post-create-btn" onClick={create} >
-                작성하기
-              </Button>
-          </div>
+          <button className="btn" id="main-btn-lg" onClick={createPost}>작성하기</button>
         </Form>
       </Container>
     </div>

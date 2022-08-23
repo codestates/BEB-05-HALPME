@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
-import '../assets/styles/Navbar.css';
-// import { useSelector, useDispatch } from 'react-redux'; // redux
-// import { accountActions } from "../redux/accountSlice";
+import '../../assets/styles/tabs/Navbar.css';
 
 // eslint-disable-next-line
 function Navbar({ }) {
-    // const account = useSelector((state) => state.account.address);
-    // const dispatch = useDispatch()
-
     return (
         <div className="Navbar">
             <nav className="navbar navbar-expand-lg" id="navbar">
                 <div className="container-fluid">
-                    <Link to="/" className="navbar-brand">
+                    <Link to="/" className="navbar-brand" id="nav-brand">
                         HALP ME
                     </Link>
                     <div className="navbar-items">
@@ -20,10 +15,10 @@ function Navbar({ }) {
                         <Link to="/market" className="nav-item">Market</Link>
                         <Link to="/mypage" className="nav-item">MyPage</Link>
                         <Link to="/signin">
-                            <button className="color-bg btn" id="nav-item-btn">Login</button>
+                            <button className="btn" id="main-btn-sm">Login</button>
                         </Link>
                         <Link to="/signup">
-                            <button className="color-bg btn" id="nav-item-btn">Signup</button>
+                            <button className="btn" id="main-btn-sm">Signup</button>
                         </Link>
                     </div>
                 </div>

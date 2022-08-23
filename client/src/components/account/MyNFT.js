@@ -1,4 +1,4 @@
-import '../assets/styles/MyNFT.css'
+import '../../assets/styles/account/MyNFT.css'
 
 function MyNFT({ nft }) {
     return (

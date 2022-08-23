@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { MyNFT, MyPost } from '../components'
-import '../assets/styles/MyPage.css'
+import { MyNFT, MyPost } from '../../components'
+import '../../assets/styles/account/MyPage.css'
 
 function MyPage() {
   // data
