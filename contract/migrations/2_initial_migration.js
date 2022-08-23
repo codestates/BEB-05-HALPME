@@ -1,5 +1,5 @@
 // 2_initial_migration.js
-const SimpleToken = artifacts.require("SimpleToken");
+const ICToken = artifacts.require("ICToken");
 module.exports = function (deployer) {
-  deployer.deploy(SimpleToken);
+  deployer.deploy(ICToken);
 };
