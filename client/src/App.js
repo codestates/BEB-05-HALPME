@@ -1,18 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
-// pages
-import Home from './pages/Home';
-import Market from './pages/Market';
-import PostCreate from './pages/PostCreate';
-import PostDetail from './pages/PostDetail';
-import MyPage from './pages/MyPage';
-import Signin from './pages/Signin'
-import Signup from './pages/Signup';
-import NotFound from './pages/NotFound';
-// components
-import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-
+import { Home, Market, MyPage, NotFound, PostCreate, PostDetail, Signin, Signup } from './pages'
+import { Navbar, Footer } from './components'
 import './assets/styles/App.css';
 
 function App() {

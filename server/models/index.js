@@ -1,8 +1,9 @@
 import path from "path";
 import { Sequelize } from "sequelize";
 const basename = path.basename(__filename);
-import Config from "../config/config.json";
-const config = Config.development;
+// import Config from "../config/config.json";
+// const config = Config.development;
+import { development as config } from "../config/config";
 const db = {};
 
 const sequelize = new Sequelize(
