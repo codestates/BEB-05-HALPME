@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+.Form-Sign-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 50%;
+  margin: auto;
+}
+.Form-Sign-2 {
+  background: white;
+  border-radius: .5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.color {
+  color: #0F4C81;
+}
+
+.color-bg {
+  background-color: #0F4C81;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.stop-dragging {
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* #F4F7F7 */
+/* #AACFD0 */
+/* #79A8A9 */
+/* #1F4E5F */
