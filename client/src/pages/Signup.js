@@ -2,16 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import crypto from 'crypto-js';
-
-import Form from "react-bootstrap/Form"; 
-import Button from "react-bootstrap/Button";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-
+import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import '../assets/styles/Signup.css';
 
 function Signup() {
+    // data
     let [userId, setUserId] = useState("")
     let [password, setPassword] = useState("")
     let [passwordConf, setPasswordConf] = useState("")
@@ -20,6 +15,7 @@ function Signup() {
 
     let navigate = useNavigate()
 
+    // functions
     let onChangeUserId = (e) => {
         setUserId(e.target.value)
     }
@@ -78,6 +74,8 @@ function Signup() {
                 })
         }
     }
+
+    // views
     return (
       <div className="Signup">
         <div className="Form-Sign-1">

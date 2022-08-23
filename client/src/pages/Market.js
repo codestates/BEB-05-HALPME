@@ -1,9 +1,11 @@
 import { useState } from 'react';
-
 import '../assets/styles/Market.css';
 
 function Market() {
+  // data
   let [imgUrl, setImgUrl] = useState("")
+
+  // functions
   let onChangeImgUrl = (e) => {
     setImgUrl(e.target.value)
   }
@@ -14,6 +16,8 @@ function Market() {
     }
     console.log(params)
   }
+
+  // views
   return (
     <div className="mint-box">
       <div className="form-box">
