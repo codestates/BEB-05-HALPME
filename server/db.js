@@ -1,14 +1,15 @@
 import db from "./models/index";
 
-db.sequelize
-  .sync({ force: true })
-  // .sync({ force: false })
-  .then(() => {
-    console.log("DB connected");
-  })
-  .catch((err) => {
-    console.log("An Error Occured On DB Connecting");
-  });
+const dbConfig = async () => {
+  await db.sequelize
+    .sync({ force: true })
+    .then(() => {
+      console.log("DB connected");
+    })
+    .catch((err) => {
+      console.log("An Error Occured On DB Connecting");
+    });
+};
 // CRUD TEST
 const Test = async () => {
   // Create Test
@@ -81,5 +82,5 @@ const Test = async () => {
   }
 };
 
-// Test(); // dummydata 를 생성하려면 주석을 해제해주세요
+dbConfig().then(() => Test());
 export default db;
