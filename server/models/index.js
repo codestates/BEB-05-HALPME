@@ -1,7 +1,7 @@
 import path from "path";
 import { Sequelize } from "sequelize";
 const basename = path.basename(__filename);
-import Config from "../config/config.json";
+import Config from "../config/config.js";
 const config = Config.development;
 const db = {};
 
@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
   config.username,
   config.password,
   {
-    dialect: "mysql",
+    dialect: config.dialect,
     logging: false,
   }
 );
