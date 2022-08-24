@@ -1,8 +1,0 @@
-export { default as Home } from './Home'
-export { default as Market } from './Market'
-export { default as MyPage } from './MyPage'
-export { default as NotFound } from './NotFound'
-export { default as PostCreate } from './PostCreate'
-export { default as PostDetail } from './PostDetail'
-export { default as Signin } from './Signin'
-export { default as Signup } from './Signup'
