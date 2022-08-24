@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+
+#navbar {
+    background: white;
+    height: 4rem;
+}
+.navbar-brand {
+    font-family: 'DynaPuff', cursive; 
+    margin-left: 1rem;
+}
+.nav-item {
+    color: black;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+.nav-item:hover {
+    color: #79A8A9;
+}
+#nav-item-btn {
+    background: #79A8A9;
+    border: none;
+    /* border-radius: 8px; */
+    color: white;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    /* outline: none; */
+}
+#nav-item-btn:hover {
+    background: #F0F0F0;
+    color: #79A8A9;
+    outline: #79A8A9;
+}
