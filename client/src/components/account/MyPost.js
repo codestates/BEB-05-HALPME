@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 
-import Pagebar from "./Pagebar";
-import '../assets/styles/MyPost.css'
+import Pagebar from "../post/Pagebar";
+import '../../assets/styles/account/MyPost.css'
 
 function MyPost() {
   let limit = 5   // 페이지 당 게시글 수
@@ -17,8 +17,16 @@ function MyPost() {
     let result = postList.slice((page-1)*limit, page*limit)
     setPosts(result)
   }
-  let toPostDetail = (postid) => {
-    navigate(`/detail/${postid}`, { replace: true });
+  let toPostDetail = (postId, post) => {
+    navigate(
+      `/detail/${postId}`,
+      {
+        state: {
+          post: post
+        },
+        replace: true
+      }
+    )
   }
 
   return (
@@ -38,24 +46,24 @@ function MyPost() {
             posts.map((post) => {
               if (post.status)
               return (
-                <tr key={post.postid} onClick={() => toPostDetail(post.postid)}>
-                  <td className="mypost-td-id">{post.postid}</td>
+                <tr key={post.postId} onClick={() => toPostDetail(post.postId, post)}>
+                  <td className="mypost-td-id">{post.postId}</td>
                   <td className="mypost-td-title" >{post.category} &gt; {post.title.slice(0, 15)}...</td>
                   <td className="mypost-td-status">
                     <span id="mypost-td-status-btn-1" className="badge rounded-pill" title='질문이 종료되었습니다.'>답변완료</span>
                   </td>
-                  <td className="mypost-td-created-at">{post.created_at.slice(0, 10)}</td>
+                  <td className="mypost-td-created-at">{post.createdAt.slice(0, 10)}</td>
                 </tr>
               )
               else
               return (
-                <tr key={post.postid} onClick={() => toPostDetail(post.postid)}>
-                <td className="mypost-td-id">{post.postid}</td>
+                <tr key={post.postId} onClick={() => toPostDetail(post.postId, post)}>
+                <td className="mypost-td-id">{post.postId}</td>
                 <td className="mypost-td-title" >{post.category} &gt;{post.title.slice(0, 15)}...</td>
                 <td className="mypost-td-status">
                   <span className="badge rounded-pill text-bg-secondary" title='답변이 없거나 채틱된 답변이 없습니다.'>답변대기</span>
                 </td>
-                <td className="mypost-td-created-at">{post.created_at.slice(0, 10)}</td>
+                <td className="mypost-td-created-at">{post.createdAt.slice(0, 10)}</td>
               </tr>
               )
             })

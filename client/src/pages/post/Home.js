@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import { PostList } from '../components'
-import '../assets/styles/Home.css'
+import { PostList } from '../../components'
+import '../../assets/styles/post/Home.css'
 
 function Home() {
   // data
@@ -16,7 +16,7 @@ function Home() {
   return (
     <div className="Home">
       <div className="post-create-btn">
-        <Button id="post-create-btn" onClick={toPostCreate} variant="secondary">게시글 작성</Button>{' '}
+        <button className="btn" id="main-btn-sm" onClick={toPostCreate}>게시글 작성</button>
       </div>
       <PostList />
     </div>
