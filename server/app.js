@@ -28,7 +28,7 @@ const corsOption = {
   optionsSuccessStatus: 200,
   credentials: true,
 };
-app.use(cors(corsOption));
+app.use(cors());
 app.use(cookieParser());
 
 // routes

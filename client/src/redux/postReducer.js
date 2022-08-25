@@ -1,6 +1,13 @@
 import { getPostsSummaryAPI } from "../apis/post"
 
-const initialState = getPostsSummaryAPI()
+var initialState = {
+    posts: []
+}
+
+getPostsSummaryAPI()
+    .then((data) => {
+        initialState.posts = data.data
+    })
 
 // actions
 export const SET_POSTS = "SET_POSTS"
