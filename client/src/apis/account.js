@@ -29,6 +29,7 @@ export async function signinAPI(loginId, password) {
                 loginId: loginId,
                 password: password,
             },
+            withCredentials:true
         })
         console.log(res)
         // localStorage.setItem('refresh-token', res.data['refresh-token'])
