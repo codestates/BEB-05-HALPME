@@ -19,12 +19,16 @@ import actionRouter from "./routes/action";
 dotenv.config();
 const app = express();
 app.listen(process.env.PORT, async () => {
-  console.log(process.env.SERVER_BANNER);
   console.log(`\nSERVER Listening on ${process.env.PORT}`);
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+const corsOption = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+app.use(cors(corsOption));
 app.use(cookieParser());
 
 // routes
