@@ -14,7 +14,7 @@ interface ERC20Interface {
     event Approval(address indexed owner, address indexed spender, uint256 oldAmount, uint256 amount);
 }
 
-contract ICToken is ERC20Interface {
+contract HALPToken is ERC20Interface {
     mapping (address => uint256) private _balances;
     mapping (address => mapping (address => uint256)) public _allowances;
 

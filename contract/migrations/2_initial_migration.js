@@ -1,5 +1,5 @@
-const ICToken = artifacts.require("ICToken");
+const HALPToken = artifacts.require("HALPToken");
 
 module.exports = function (deployer) {
-  deployer.deploy(ICToken, "icToken!", "ICT");
+  deployer.deploy(HALPToken, "halpToken", "HALP");
 };
