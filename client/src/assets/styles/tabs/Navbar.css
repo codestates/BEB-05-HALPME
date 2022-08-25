@@ -20,5 +20,13 @@
     text-decoration: none;
 }
 .nav-item:hover {
-    color: #79A8A9;
+    color: var(--color-4);
+}
+#logout-modal-btn-2 {
+  font-family: var(--font-2);
+}
+#logout-modal-btn-2:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: #df4759;
 }
