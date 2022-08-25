@@ -11,7 +11,7 @@ export async function signupAPI(loginId, password, nickname) {
                 loginId: loginId,
                 password: password,
                 nickname: nickname
-            }
+            },
         })
         return res.data
     }
@@ -23,17 +23,18 @@ export async function signupAPI(loginId, password, nickname) {
 export async function signinAPI(loginId, password) {
     try {
         let res = await axios({
-            url: SERVER_URL + '/user/signin',
+            url: SERVER_URL + '/user/login',
             method: "POST",
-            // data: {
-            //     loginId: loginId,
-            //     password: password,
-            //     nickname: nickname
-            // }
+            data: {
+                loginId: loginId,
+                password: password,
+            }
         })
-        return res.data
+        // localStorage.setItem('refresh-token', res.data['refresh-token'])
+        return res
     }
     catch (error) {
+        console.log(error)
         throw new Error(error)
     }
 }

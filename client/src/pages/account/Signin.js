@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from 'axios'
-import crypto from 'crypto-js';
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Row, Col, Container } from "react-bootstrap"
+import crypto from 'crypto-js'
+import { signinAPI } from "../../apis/account";
 import '../../assets/styles/account/Signin.css';
 
 function Signin() {
@@ -10,7 +10,9 @@ function Signin() {
   let [userId, setUserId] = useState("")
   let [password, setPassword] = useState("")
   let [validationMsg, setValidationMsg] = useState("")
-  let navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  let account = useSelector((state) => state.account)
 
   // functions
   let onChangeUserId = (e) => {
@@ -34,16 +36,21 @@ function Signin() {
   }
   let signin = () => {
     if (isValidate()) {
-      let ciphertext = crypto.AES.encrypt(password, process.env.REACT_APP_SECRET_KEY).toString();
-      let params = {
-          id: userId,
-          password: ciphertext,
-      }
-      console.log(params)
-      axios.post()
-          .then(() => {
-              // 로그인 처리
-              navigate("/", { replace: true });
+      let hash = crypto.SHA256(password).toString();
+      signinAPI(userId, hash)
+          .then((res) => {
+              console.log(res)
+              if (res.data.data === null) {
+                setValidationMsg("비밀번호를 확인해주세요.")
+              }
+              else {
+                let params = {
+                  id: res.data.data.id,
+                  nickname: res.data.data.nickname
+                }
+                dispatch({ type: 'SET_ACCOUNT', data: params});
+                window.location.replace("/")
+              }
           })
           .catch((err) => {
               console.log(err)
@@ -78,7 +85,7 @@ function Signin() {
                         : <span></span>
                   }
                   <br/>
-                  <button className="btn" id="main-btn-lg" onClick={signin}>Login</button>
+                  <button className="btn" id="main-btn-lg" type="button" onClick={signin}>Login</button>
               </Form>
           </Container>
         </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Modal } from 'react-bootstrap'
 import '../../assets/styles/tabs/Navbar.css';
 
@@ -9,6 +9,8 @@ function Navbar({ }) {
     const [showLogoutModal, setShowLogoutModal] = useState(false)
     const [showFaucetModal, setShowFaucetModal] = useState(false)
     let account = useSelector((state) => state.account)
+
+    const dispatch = useDispatch()
 
     const handleCloseLogoutModal = () => setShowLogoutModal(false)
     const handleShowLogoutModal = () => setShowLogoutModal(true)
@@ -19,7 +21,8 @@ function Navbar({ }) {
 
     }
     let signout = () => {
-
+        dispatch({ type: 'SET_ACCOUNT', data: {}});
+        window.location.replace("/")
     }
     return (
         <div className="Navbar">
@@ -33,14 +36,10 @@ function Navbar({ }) {
                         <Link to="/market" className="nav-item">Market</Link>
                         <Link to="/mypage" className="nav-item">MyPage</Link>
                         {
-                            account
+                            account.id
                             ? <span>
-                                <Link to="/">
-                                    <button className="btn" id="main-btn-sm" onClick={handleShowFaucetModal}>Faucet</button>
-                                </Link>
-                                <Link to="/">
-                                    <button className="btn" id="main-btn-sm" onClick={handleShowLogoutModal}>Logout</button>
-                                </Link>
+                                <button className="btn" id="main-btn-sm" onClick={handleShowFaucetModal}>Faucet</button>
+                                <button className="btn" id="main-btn-sm" onClick={handleShowLogoutModal}>Logout</button>
                             </span>
                             : <span>
                             <Link to="/signin">
