@@ -1,9 +1,17 @@
 .Footer {
-    background: white;
-    height: 2rem;
-    margin-top: auto;
-    width: 100%;
-    position: absolute;  
+    min-height: 8vh;
     bottom: 0;
-    left: 0;
+    position: relative;
+    width: 100%; 
+    background-color: #f2f2f2;
+}
+
+footer {
+	width: 100%;
+	height: 40px; /* 내용물에 따라 알맞는 값 설정 */
+	bottom: 0px;
+	position: absolute;
+}
+section {
+	padding-bottom: 40px; /* footer의 height값과 동일 */
 }

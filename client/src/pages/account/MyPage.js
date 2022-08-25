@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { MyNFT, MyPost } from '../../components'
 import '../../assets/styles/account/MyPage.css'
 
-function MyPage() {
+function MyPage({ account }) {
   // data
-  let account = useSelector((state) => state.account)
   let [transferTo, setTransferTo] = useState("")
   let [transferAmount, setTransferAmount] = useState(0)
   let [validationMsg, setValidationMsg] = useState("")
@@ -52,6 +51,8 @@ function MyPage() {
         img_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/9a180a134940265.61dee9a60a053.png'
     }
   ]
+  let navigate = useNavigate()
+
 
   // functions
   let onChangeAddress = (e) => {
@@ -83,6 +84,12 @@ function MyPage() {
       console.log(params)
     }
   }
+
+  useEffect(() => {
+    if (!account.id) {
+      navigate('/signin', { reload: true })
+    }
+  }, [])
 
   // views
   return (

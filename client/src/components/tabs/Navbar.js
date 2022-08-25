@@ -38,15 +38,15 @@ function Navbar({ }) {
                         {
                             account.id
                             ? <span>
-                                <button className="btn" id="main-btn-sm" onClick={handleShowFaucetModal}>Faucet</button>
-                                <button className="btn" id="main-btn-sm" onClick={handleShowLogoutModal}>Logout</button>
+                                <button className="btn" id="main-btn-sm"  type="button" onClick={handleShowFaucetModal}>Faucet</button>
+                                <button className="btn" id="main-btn-sm"  type="button" onClick={handleShowLogoutModal}>Logout</button>
                             </span>
                             : <span>
                             <Link to="/signin">
-                                <button className="btn" id="main-btn-sm">Login</button>
+                                <button className="btn" id="main-btn-sm"  type="button">Login</button>
                             </Link>
                             <Link to="/signup">
-                                <button className="btn" id="main-btn-sm">Signup</button>
+                                <button className="btn" id="main-btn-sm"  type="button">Signup</button>
                             </Link>
                         </span>
                         }
@@ -63,8 +63,8 @@ function Navbar({ }) {
                     Are you sure you want to request 1 ether from faucet?
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn" id="main-btn-sm" onClick={handleCloseFaucetModal}>Close</button>
-                    <button className="btn" id="main-btn-sm" onClick={getFaucet}>Sure</button>
+                    <button className="btn" id="main-btn-sm"  type="button" onClick={handleCloseFaucetModal}>Close</button>
+                    <button className="btn" id="main-btn-sm"  type="button" onClick={getFaucet}>Sure</button>
                 </Modal.Footer>
             </Modal>
             {/* Signout Modal */}
@@ -77,8 +77,8 @@ function Navbar({ }) {
                     Are you sure you want to logout?
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn" id="main-btn-sm" onClick={handleCloseLogoutModal}>Close</button>
-                    <button className="btn btn-danger" id="logout-modal-btn-2" onClick={signout}>Logout</button>
+                    <button className="btn" id="main-btn-sm"  type="button" onClick={handleCloseLogoutModal}>Close</button>
+                    <button className="btn btn-danger" id="logout-modal-btn-2" type="button" onClick={signout}>Logout</button>
                 </Modal.Footer>
             </Modal>
         </div>

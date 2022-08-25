@@ -13,6 +13,7 @@ export async function signupAPI(loginId, password, nickname) {
                 nickname: nickname
             },
         })
+        console.log(res)
         return res.data
     }
     catch (error) {
@@ -29,10 +30,9 @@ export async function signinAPI(loginId, password) {
                 loginId: loginId,
                 password: password,
             },
-            withCredentials:true
+            withCredentials: true
         })
         console.log(res)
-        // localStorage.setItem('refresh-token', res.data['refresh-token'])
         return res
     }
     catch (error) {

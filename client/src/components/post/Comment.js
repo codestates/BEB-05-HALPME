@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { chooseComment } from '../../apis/post';
 import '../../assets/styles/post/Comment.css'
 
 function Comment({ comment, writer }) {
@@ -7,7 +8,10 @@ function Comment({ comment, writer }) {
 
   // functions
   let chooseComment = () => {
-    console.log(comment)
+    chooseComment(comment.id)
+      .then((res) => {
+        console.log(res)
+      })
   }
 
   // views
@@ -20,7 +24,7 @@ function Comment({ comment, writer }) {
               account.nickname !== writer
               ? (
                 <div className="col-md-2 offset-md-4">
-                  <button className="btn btn-sm" id="main-btn-sm" onClick={chooseComment}>채택하기</button>
+                  <button className="btn btn-sm" id="main-btn-sm" type="button" onClick={chooseComment}>채택하기</button>
                 </div>
                 )
               : ""
