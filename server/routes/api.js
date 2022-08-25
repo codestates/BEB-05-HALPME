@@ -24,6 +24,9 @@ router.get("/user-data/:id", userController.findUserByUserId);
 router.get("/post-data", postController.findAllPost);
 router.get("/post-data/:id", postController.findPostByUserId);
 
+// 댓글 정보 얻기
+router.get("/comment-data/:postId", postController.findCommentByPostId);
+
 // NFT 정보 얻기
 router.get("/nft-data", nftController.findAll);
 router.get("/nft-data/:address", nftController.findByAddress);
