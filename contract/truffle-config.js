@@ -12,6 +12,13 @@ module.exports = {
       network_id: "5777", // Match any network id
       gas: 5000000
     }
+    // MainNet Deploy
+    // mainnet: {
+    //   host: "",
+    //   port: ,
+    //   network_id: "", // Match any network id
+    //   gas: 5000000
+    // }
   },
   compilers: {
     solc: {
