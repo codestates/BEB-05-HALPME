@@ -1,8 +1,14 @@
 .Signin {
-    text-align: center;
+    /* text-align: center;
     margin: auto;
-    width: 40%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 40%; */
 }
 .validation-msg {
     color: red;
+}
+#signin-btn {
+    background: #79A8A9;
+    border: none;
 }

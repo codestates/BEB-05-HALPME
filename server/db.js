@@ -43,7 +43,7 @@ const Test = async () => {
 
   const u = await db.User.findAll();
   if (u.length <= 0) {
-    db.User.create({
+    await db.User.create({
       loginId: "korea",
       password: "1234",
       nickname: "HALP",
@@ -54,7 +54,7 @@ const Test = async () => {
 
   const p = await db.Post.findAll();
   if (p.length <= 0) {
-    db.Post.create({
+    await db.Post.create({
       title: "안녕하세요 redux에 대해서 궁금한 점이 있습니다.",
       id: 1,
       contents: "안녕하쇼! redux에 대해서 알아보러온 하얼빈의 장첸이오",
@@ -65,7 +65,7 @@ const Test = async () => {
 
   const w = await db.Wallet.findAll();
   if (p.length <= 0) {
-    db.Wallet.create({
+    await db.Wallet.create({
       address: "0x11512de68B5Be4F1B6Cf43f7Aa0455C2408b203b",
       balance: 50,
       id: 1,
@@ -74,7 +74,7 @@ const Test = async () => {
 
   const n = await db.NFT.findAll();
   if (n.length <= 0) {
-    db.NFT.create({
+    await db.NFT.create({
       URI: "ipfs://imagedesune",
       price: 5,
       address: "0x11512de68B5Be4F1B6Cf43f7Aa0455C2408b203b",

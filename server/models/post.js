@@ -23,6 +23,7 @@ export default (sequelize, DataTypes) => {
       status: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 0,
       },
     },
     {

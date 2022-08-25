@@ -10,7 +10,7 @@ function Navbar({ }) {
 
     return (
         <div className="Navbar">
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg" id="navbar">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         HALP ME
@@ -20,10 +20,10 @@ function Navbar({ }) {
                         <Link to="/market" className="nav-item">Market</Link>
                         <Link to="/mypage" className="nav-item">MyPage</Link>
                         <Link to="/signin">
-                            <button className="nav-item-btn color-bg btn">Login</button>
+                            <button className="color-bg btn" id="nav-item-btn">Login</button>
                         </Link>
                         <Link to="/signup">
-                            <button className="nav-item-btn color-bg btn">Signup</button>
+                            <button className="color-bg btn" id="nav-item-btn">Signup</button>
                         </Link>
                     </div>
                 </div>
