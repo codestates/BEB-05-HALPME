@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from 'react-redux';
 
 import Pagination from 'react-bootstrap/Pagination';
-import '../assets/styles/Pagebar.css'
+import '../../assets/styles/post/Pagebar.css'
 
 function Pagebar({ getPage, limit }) {
     let [page, setPage] = useState(1) // 현재 페이지

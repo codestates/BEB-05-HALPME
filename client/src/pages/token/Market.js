@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../assets/styles/Market.css';
+import '../../assets/styles/token/Market.css';
 
 function Market() {
   // data

@@ -2,7 +2,7 @@ import db from "./models/index";
 
 const dbConfig = async () => {
   await db.sequelize
-    .sync({ force: true })
+    .sync({ force: false })
     .then(() => {
       console.log("DB connected");
     })

@@ -5,10 +5,11 @@
 
 /* header */
 .mypage-header {
-    margin: 2rem 0;
+    margin: 1rem 0;
     text-align: left;
 }
 .mypage-header-name {
+    font-family: var(--font-2);
     margin-bottom: 1rem;
 }
 .mypage-header-address-image {

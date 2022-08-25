@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
+import { useDispatch } from "react-redux";
+import { Form, Row, Col, Container } from "react-bootstrap"
 import crypto from 'crypto-js';
-import { Form, Button, Row, Col, Container } from "react-bootstrap"
-import '../assets/styles/Signup.css';
+import { signupAPI, signinAPI } from "../../apis/account";
+import '../../assets/styles/account/Signup.css';
+
 
 function Signup() {
     // data
@@ -13,7 +15,7 @@ function Signup() {
     let [nickname, setNickname] = useState("")
     let [validationMsg, setValidationMsg] = useState("")
 
-    let navigate = useNavigate()
+    let dispatch = useDispatch()
 
     // functions
     let onChangeUserId = (e) => {
@@ -49,24 +51,27 @@ function Signup() {
         }
         return false
     }
-
     let signup = () => {
         if(isValidate()) {
-            let ciphertext = crypto.AES.encrypt(password, process.env.REACT_APP_SECRET_KEY).toString();
-            let params = {
-                id: userId,
-                password: ciphertext,
-                nickname: nickname
-            }
-            console.log(params)
-            axios.post()
-                .then(() => {
-                    // 로그인 요청
-                    axios.post()
-                        .then(() => {
-                            // 홈으로 이동
-                            navigate("/", { replace: true });
-                        })
+            let hash = crypto.SHA256(password).toString();
+            signupAPI(userId, hash, nickname)
+                .then((data) => {
+                    console.log(data)
+                })
+                .then(() => signinAPI(userId, hash))
+                .then((res) => {
+                    console.log(res)
+                    if (res.data.data === null) {
+                        window.location.replace('/signin')
+                    }
+                    else {
+                        let params = {
+                        id: res.data.data.id,
+                        nickname: res.data.data.nickname
+                        }
+                        dispatch({ type: 'SET_ACCOUNT', data: params});
+                        window.location.replace("/")
+                    }
                 })
                 .catch((err) => {
                     console.log(err)
@@ -112,11 +117,7 @@ function Signup() {
                             : <span></span>
                         }
                         <br/>
-                        <div className="d-grid gap-1">
-                            <Button id="signup-btn" onClick={signup}>
-                                Sign Up
-                            </Button>
-                        </div>
+                        <button className="btn" id="main-btn-lg" type="button" onClick={signup}>Sign Up</button>
                     </Form>
                 </Container>
             </div>
