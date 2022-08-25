@@ -8,6 +8,8 @@ import express from "express";
 import db from "./db"; // ORM 연결
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import https from "https";
+import fs from "fs";
 
 // import for route
 import homeRouter from "./routes/home";
@@ -18,19 +20,26 @@ import actionRouter from "./routes/action";
 // config
 dotenv.config();
 const app = express();
-app.listen(process.env.PORT, async () => {
+
+const privateKey = fs.readFileSync(__dirname + "/key.pem", "utf8");
+const certificate = fs.readFileSync(__dirname + "/cert.pem", "utf8");
+const credentials = { key: privateKey, cert: certificate };
+
+const server = https.createServer(credentials, app);
+
+server.listen(process.env.PORT, async () => {
   console.log(`\nSERVER Listening on ${process.env.PORT}`);
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const corsOption = {
-  origin: 'http://localhost:3000',
+  origin: ["https://localhost:3000"],
+  methods: ["GET", "POST", "OPTIONS"],
   optionsSuccessStatus: 200,
   credentials: true,
 };
 app.use(cors(corsOption));
 app.use(cookieParser());
-
 // routes
 app.use("/", homeRouter);
 app.use("/api", apiRouter);
