@@ -30,35 +30,36 @@ export default {
     }
   },
   writePost: async (req, res) => {
-    if (req.cookies) {
-      const refreshToken = req.cookies["refreshToken"];
-      const info = jwt.verify(refreshToken, "privateKey");
-      const postObj = {
-        id: info.id,
-        title: req.body.title,
-        contents: req.body.contents,
-        category: req.body.category,
-      };
+    // if (req.cookies) {
+    //   const refreshToken = req.cookies["refreshToken"];
+    //   const info = jwt.verify(refreshToken, "privateKey");
+    const postObj = {
+      id: req.query.id,
+      title: req.body.title,
+      contents: req.body.contents,
+      category: req.body.category,
+    };
 
-      const data = await postService.writePost(
-        postObj.id,
-        postObj.title,
-        postObj.contents,
-        postObj.category
-      );
+    const data = await postService.writePost(
+      postObj.id,
+      postObj.title,
+      postObj.contents,
+      postObj.category
+    );
 
-      res.json(data);
-    }
+    res.json(data);
+    // }
   },
   writeComment: async (req, res) => {
-    const refreshToken = req.cookies["refreshToken"];
-    const user = jwt.verify(refreshToken, "privateKey");
-    const id = user.id;
+    // const refreshToken = req.cookies["refreshToken"];
+    // const user = jwt.verify(refreshToken, "privateKey");
+    const id = req.query.id;
     const commentObj = {
       contents: req.body.contents,
       id: id,
       postId: req.params.postId,
     };
+    console.log(commentObj);
     const comment = await postService.writeComment(
       commentObj.id,
       commentObj.postId,
