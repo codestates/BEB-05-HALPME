@@ -8,6 +8,7 @@ export async function getPostsSummaryAPI() {
             url: SERVER_URL + '/',
             method: "GET",
         })
+        console.log(res.data)
         return res.data
     }
     catch (error) {
