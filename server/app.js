@@ -21,13 +21,13 @@ import actionRouter from "./routes/action";
 dotenv.config();
 const app = express();
 
-const privateKey = fs.readFileSync(__dirname + "/key.pem", "utf8");
-const certificate = fs.readFileSync(__dirname + "/cert.pem", "utf8");
-const credentials = { key: privateKey, cert: certificate };
+// const privateKey = fs.readFileSync(__dirname + "/key.pem", "utf8");
+// const certificate = fs.readFileSync(__dirname + "/cert.pem", "utf8");
+// const credentials = { key: privateKey, cert: certificate };
 
-const server = https.createServer(credentials, app);
+// const server = https.createServer(credentials, app);
 
-server.listen(process.env.PORT, async () => {
+app.listen(process.env.PORT, async () => {
   console.log(`\nSERVER Listening on ${process.env.PORT}`);
 });
 app.use(express.json());
@@ -39,7 +39,7 @@ const corsOption = {
   credentials: true,
 };
 app.use(cors(corsOption));
-app.use(cookieParser());
+// app.use(cookieParser());
 // routes
 app.use("/", homeRouter);
 app.use("/api", apiRouter);
