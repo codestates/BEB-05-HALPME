@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import { Loading, Pagebar } from "../";
-import { getMyPosts } from "../../apis/account";
 import '../../assets/styles/account/MyPost.css'
 
 function MyPost({ posts }) {
@@ -79,7 +78,7 @@ function MyPost({ posts }) {
             <Pagebar getPage={getPage} limit={limit} posts={posts} />
           </div>
         )
-        : <Loading />
+        : <div>아직 작성한 질문이 없습니다.</div>
       }
 
     </div>
