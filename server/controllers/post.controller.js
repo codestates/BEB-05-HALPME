@@ -59,7 +59,6 @@ export default {
       id: id,
       postId: req.params.postId,
     };
-    console.log(commentObj);
     const comment = await postService.writeComment(
       commentObj.id,
       commentObj.postId,

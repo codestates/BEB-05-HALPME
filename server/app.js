@@ -33,7 +33,7 @@ app.listen(process.env.PORT, async () => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const corsOption = {
-  origin: ["https://localhost:3000"],
+  origin: ["http://localhost:3000"],
   methods: ["GET", "POST", "OPTIONS"],
   optionsSuccessStatus: 200,
   credentials: true,
