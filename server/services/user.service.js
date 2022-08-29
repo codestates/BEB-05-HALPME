@@ -1,4 +1,7 @@
 import db from "../db";
+import Web3 from "web3";
+
+const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 
 export default {
   findAllUser: async () => {
@@ -19,12 +22,17 @@ export default {
     });
   },
   createUser: async (userObj) => {
-    await db.User.create({
+    const newAddress = await web3.eth.personal.newAccount(userObj.password);
+    const user = await db.User.create({
       loginId: userObj.loginId,
       password: userObj.password,
       nickname: userObj.nickname,
-      address: userObj.address,
       role: userObj.role,
+    });
+
+    await db.Wallet.create({
+      address: newAddress,
+      id: user.id,
     });
   },
 };
