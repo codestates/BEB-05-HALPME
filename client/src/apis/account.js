@@ -33,3 +33,27 @@ export async function signinAPI(loginId, password) {
     throw new Error(error);
   }
 }
+
+export async function getWalletData(id) {
+  try {
+    let res = await axios({
+      url: SERVER_URL + `/api/wallet-data/${id}`,
+      method: "GET",
+    });
+    return res.data
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export async function getMyPosts(id) {
+  try {
+    let res = await axios({
+      url: SERVER_URL + `/api/post-data/${id}`,
+      method: "GET",
+    });
+    return res.data
+  } catch (error) {
+    throw new Error(error);
+  }
+}
