@@ -17,7 +17,7 @@ export default (sequelize, DataTypes) => {
         allowNull: false,
       },
       category: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       status: {
