@@ -7,15 +7,16 @@ import dotenv from "dotenv";
 import express from "express";
 import db from "./db"; // ORM 연결
 import cors from "cors";
-import cookieParser from "cookie-parser";
-import https from "https";
-import fs from "fs";
+// import cookieParser from "cookie-parser";
+// import https from "https";
+// import fs from "fs";
 
 // import for route
 import homeRouter from "./routes/home";
 import apiRouter from "./routes/api";
 import userRouter from "./routes/user";
 import actionRouter from "./routes/action";
+import blockchainRouter from "./routes/blockchain";
 
 // config
 dotenv.config();
@@ -36,12 +37,12 @@ const corsOption = {
   origin: ["http://localhost:3000"],
   methods: ["GET", "POST", "OPTIONS"],
   optionsSuccessStatus: 200,
-  credentials: true,
 };
-app.use(cors(corsOption));
+app.use(cors());
 // app.use(cookieParser());
 // routes
 app.use("/", homeRouter);
 app.use("/api", apiRouter);
 app.use("/user", userRouter);
 app.use("/action", actionRouter);
+app.use("/blockchain", blockchainRouter);

@@ -8,7 +8,6 @@ export async function getPostsSummaryAPI() {
             url: SERVER_URL + '/',
             method: "GET",
         })
-        console.log(res.data)
         return res.data
     }
     catch (error) {
@@ -16,10 +15,10 @@ export async function getPostsSummaryAPI() {
     }
 }
 
-export async function createPostAPI(title, category, contents) {
+export async function createPostAPI(id, title, category, contents) {
     try {
         let res = await axios({
-            url: SERVER_URL + '/action/write/post',
+            url: SERVER_URL + `/action/write/post?id=${id}`,
             method: "POST",
             data: {
                 title: title,
@@ -36,12 +35,10 @@ export async function createPostAPI(title, category, contents) {
 
 export async function getComments(postId) {
     try {
-        console.log(postId)
         let res = await axios({
             url: SERVER_URL + `/api/comment-data/${postId}`,
             method: "GET"
         })
-        console.log(res.data)
         return res.data
     }
     catch (error) {
@@ -49,11 +46,15 @@ export async function getComments(postId) {
     }
 }
 
-export async function createComments(postId) {
+export async function createComment(id, contents, postId) {
     try {
         let res = await axios({
-            url: SERVER_URL + `/api/comment-data/${postId}`,
-            method: "GET"
+            url: SERVER_URL + `/action/write/comment/${postId}?id=${id}`,
+            method: "POST",
+            data: {
+                contents: contents,
+                postId: postId
+            }
         })
         console.log(res.data)
         return res.data
@@ -67,9 +68,21 @@ export async function chooseComment(commentId) {
     try {
         let res = await axios({
             url: SERVER_URL + `/action/comment/select/${commentId}`,
-            method: "POST"
+            method: "POST",
         })
-        console.log(res.data)
+        return res.data
+    }
+    catch (error) {
+        throw new Error(error)
+    }
+}
+
+export async function getWriter(id) {
+    try {
+        let res = await axios({
+            url: SERVER_URL + `/api/user-data/${id}`,
+            method: "GET"
+        })
         return res.data
     }
     catch (error) {

@@ -1,15 +1,25 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostList } from '../../components'
+import { getPostsSummaryAPI } from "../../apis/post";
 import '../../assets/styles/post/Home.css'
 
 function Home({ account }) {
   // data
+  let [posts, setPosts] = useState([])
   let navigate = useNavigate()
 
   // functions
   let toPostCreate = () => {
     navigate('/create', { replace: true })
   }
+
+  useEffect(() => {
+    getPostsSummaryAPI()
+    .then((data) => {
+        setPosts(data.data)
+    })
+  }, [])
 
   // views
   return (
@@ -23,7 +33,7 @@ function Home({ account }) {
         )
         : <div className="post-space"></div>
       }
-      <PostList />
+      <PostList posts={posts} />
     </div>
   );
 }

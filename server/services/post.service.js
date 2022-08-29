@@ -40,10 +40,11 @@ export default {
     return comment;
   },
   selectComment: async (commentId) => {
-    const comment = await db.Comment.update(
-      { status: 1 },
-      { where: { commentId: commentId } }
-    );
+    await db.Comment.update({ status: 1 }, { where: { commentId: commentId } });
+    const comment = await db.Comment.findOne({
+      where: { commentId: commentId },
+    });
+    await db.Post.update({ status: 1 }, { where: { postId: comment.postId } });
     return comment;
   },
 };

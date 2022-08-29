@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      URI: {
+      URL: {
         type: DataTypes.STRING,
         allowNull: false,
       },

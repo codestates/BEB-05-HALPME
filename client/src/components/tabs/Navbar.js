@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from 'react-bootstrap'
 import '../../assets/styles/tabs/Navbar.css';
@@ -9,6 +9,7 @@ function Navbar({ }) {
     const [showLogoutModal, setShowLogoutModal] = useState(false)
     const [showFaucetModal, setShowFaucetModal] = useState(false)
     let account = useSelector((state) => state.account)
+    let navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -21,8 +22,15 @@ function Navbar({ }) {
 
     }
     let signout = () => {
-        dispatch({ type: 'SET_ACCOUNT', data: {}});
-        window.location.replace("/")
+        let params = {
+            id: null,
+            nickname: null
+        }
+        dispatch({ type: 'SET_ACCOUNT', data: params});
+        handleCloseLogoutModal()
+        navigate('/')
+
+        // window.location.replace("/")
     }
     return (
         <div className="Navbar">

@@ -13,4 +13,5 @@ export default {
       res.json({ message: "ok", data: data });
     }
   },
+  mintNft: async (req, res) => {},
 };

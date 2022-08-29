@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Form, Row, Col, Container } from "react-bootstrap"
 import crypto from 'crypto-js';
@@ -30,6 +29,11 @@ function Signup() {
     let onChangeNickname = (e) => {
         setNickname(e.target.value)
     }
+    let onKeyPress = (e) => {
+        if (e.key == 'Enter') {
+          signup()
+        }
+      }
     let isValidate = () => {
         if (userId.length < 5 || userId.length > 12) {
             setValidationMsg("아이디는 5글자 이상 12글자 이하여야 합니다.")
@@ -60,14 +64,13 @@ function Signup() {
                 })
                 .then(() => signinAPI(userId, hash))
                 .then((res) => {
-                    console.log(res)
-                    if (res.data.data === null) {
+                    if (res.data === null) {
                         window.location.replace('/signin')
                     }
                     else {
                         let params = {
-                        id: res.data.data.id,
-                        nickname: res.data.data.nickname
+                        id: res.data.id,
+                        nickname: res.data.nickname
                         }
                         dispatch({ type: 'SET_ACCOUNT', data: params});
                         window.location.replace("/")
@@ -90,25 +93,25 @@ function Signup() {
                     <Form>
                         <Form.Group as={Row} className="mb-3">
                             <Col sm>
-                                <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} />
+                                <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} onKeyPress={onKeyPress} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group as={Row} className="mb-3">
                             <Col sm>
-                                <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
+                                <Form.Control type="password" placeholder="Password" onChange={onChangePassword} onKeyPress={onKeyPress} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group as={Row} className="mb-3">   
                             <Col sm>
-                                <Form.Control type="password" placeholder="Confirm Password" onChange={onChangePasswordConf} />
+                                <Form.Control type="password" placeholder="Confirm Password" onChange={onChangePasswordConf} onKeyPress={onKeyPress} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group as={Row} className="mb-3">
                             <Col sm>
-                                <Form.Control type="text" placeholder="Nickname" onChange={onChangeNickname} />
+                                <Form.Control type="text" placeholder="Nickname" onChange={onChangeNickname} onKeyPress={onKeyPress} />
                             </Col>
                         </Form.Group>
                         {

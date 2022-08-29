@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useSelector } from 'react-redux';
-
 import Pagination from 'react-bootstrap/Pagination';
 import '../../assets/styles/post/Pagebar.css'
 
-function Pagebar({ getPage, limit }) {
+function Pagebar({ getPage, limit, posts }) {
     let [page, setPage] = useState(1) // 현재 페이지
-    let posts = useSelector((state) => state.posts.posts)
 
     // 페이지 개수 리스트
     let pages = []
