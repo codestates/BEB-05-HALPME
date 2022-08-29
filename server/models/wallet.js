@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
         primaryKey: true,
       },
       balance: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         defaultValue: 0,
       },
