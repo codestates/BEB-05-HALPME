@@ -13,6 +13,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 const persistor = persistStore(store)	// 추가
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+console.log('test');
+
 root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>

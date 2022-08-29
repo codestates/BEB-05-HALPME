@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import '../assets/styles/Market.css';
+import axios from "axios";
 
 function Market() {
+  const url = `http://localhost:8000`;
+  axios.get(url,{}).then((res) => {
+    console.log(res.data.data);
+  })
   // data
   let [imgUrl, setImgUrl] = useState("")
 
@@ -16,6 +21,7 @@ function Market() {
     }
     console.log(params)
   }
+
 
   // views
   return (

@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Home, Market, MyPage, NotFound, PostCreate, PostDetail, Signin, Signup } from './pages'
+import {Home, Market, MyPage, NotFound, PostCreate, PostDetail, Signin, Signup} from './pages'
 import { Navbar, Footer } from './components'
 import './assets/styles/App.css';
 

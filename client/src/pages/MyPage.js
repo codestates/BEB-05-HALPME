@@ -2,14 +2,21 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { MyNFT, MyPost } from '../components'
 import '../assets/styles/MyPage.css'
+import axios from "axios";
+
 
 function MyPage() {
-  // data
+  // var accountAddress;
+  // function setAccountAddress(data){
+  //   accountAddress = data;
+  // }
+
   let account = useSelector((state) => state.account)
+  let [accountAddress, setAccountAddress] = useState("")
   let [transferTo, setTransferTo] = useState("")
   let [transferAmount, setTransferAmount] = useState(0)
   let [validationMsg, setValidationMsg] = useState("")
-  let tokenNum = 5
+  let tokenNum = useState(100)
   let nfts = [
     {
         id: 1,
@@ -53,6 +60,16 @@ function MyPage() {
     }
   ]
 
+  const url = 'http://localhost:8000/api/wallet-data/1';
+
+  axios.get(url,{}).then((res) => {
+
+    console.log("--------------------------start");
+    console.log(res.data);
+    console.log("--------------------------stop");
+
+    setAccountAddress(res.data['data'][0]['address']);
+  })
   // functions
   let onChangeAddress = (e) => {
     setTransferTo(e.target.value)
@@ -90,7 +107,7 @@ function MyPage() {
       <div className="mypage-header">
         <h2 className="mypage-header-name">{account.nickname}</h2>
         <div className="mypage-header-address">
-          <img className="mypage-header-address-image" src="https://static.opensea.io/general/ETH.svg" alt="Address" />  {account.address}
+          <img className="mypage-header-address-image" src="https://static.opensea.io/general/ETH.svg" alt="Address" />  {accountAddress}
         </div>
       </div>
       <div className="mypage-contents row">
@@ -130,5 +147,18 @@ function MyPage() {
     </div>
   );
 }
-  
-export default MyPage;
+
+export default {
+  findAll: async () => {
+    const data = await db.NFT.findAll();
+    if (data) {
+      return data;
+    }
+  },
+  findByAddress: async (address) => {
+    const data = await db.NFT.findAll({ where: { address: address } });
+    if (data) {
+      return data;
+    }
+  },
+};
