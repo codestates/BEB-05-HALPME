@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BEB-05-HALPME/static/css/main.ea548371.css",
+    "main.js": "/BEB-05-HALPME/static/js/main.c7aa8af3.js",
+    "index.html": "/BEB-05-HALPME/index.html",
+    "main.ea548371.css.map": "/BEB-05-HALPME/static/css/main.ea548371.css.map",
+    "main.c7aa8af3.js.map": "/BEB-05-HALPME/static/js/main.c7aa8af3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea548371.css",
+    "static/js/main.c7aa8af3.js"
+  ]
+}
