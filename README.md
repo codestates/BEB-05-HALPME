@@ -9,8 +9,10 @@
 - **팀원 : 박수연, 이송영, 안병현**
 - **Site  Link** :
 - **Date** : 2022/08/17 - 2022/08/30
+<br/>
 
 ## 💡 HALP Project **Intro**
+<br/>
 
 <aside>
 ➡️ 질의응답 커뮤니티. 사용자는 질문에 대한 게시글을 작성하고, 다른 사용자들이 해당 게시글에 답변을 댓글로 작성한다. 질문을 한 사용자는 게시글에 달린 답변 댓글 중 가장 적합한 답변을 채택한다. 채택받은 댓글의 사용자는 IC토큰을 보상으로 받는다.
@@ -43,7 +45,7 @@
 > 백엔드에서 지갑 생성, 서명 및 전송 담당. 서버 구축, 지갑 생성 및 관리, 스마트 컨트랙트와 서버를 연동하여 사용. 동작 확인을 위해 실시간 트래킹.
 > 
 
----
+<br/>
 
 # 🚨 프로젝트 소개
 
@@ -85,7 +87,7 @@
 | 지갑 | MetaMask |
 | 문서 관리 | Notion |
 
----
+<br/>
 
 ## 구현 기능
 
@@ -137,33 +139,11 @@
 - [ ]  사용자는 nft를 고정된 가격에 구매하거나 경매할 수 있다
 - [ ]  사용자는 카테고리의 Explore에서 nft 조회 방식을 선택할 수 있다
 
-| Category | Sub-Category | Desc. |
-| --- | --- | --- |
-| General | Navbar | Components
-- Logo: 누르면 홈으로 이동
-- Market
-- MyPage
-- Signup, Signin
-- ETH Faucet |
-|  | Footer | 팀 정보 및 깃헙 페이지 등 기본적인 정보가 표시된다. |
-| 회원관리 | General | 아이디와 패스워드를 입력받아 서버에서 지갑을 생성해준다. |
-|  | 회원가입 | 아이디, 닉네임, 패스워드를 입력한다. |
-|  | 로그인/로그아웃 | 아이디와 패스워드를 입력한다. |
-| 게시판 | General |  |
-|  | 게시글 리스트 |  |
-|  | 게시글 상세 | 번호, 제목, 작성자, 생성일, 조회수 등의 정보가 표시된다.
-채택된 댓글을 하이라이트로 표시된다. |
-|  | 게시글 작성 |  |
-|  | 댓글 작성 |  |
-| NFT 민팅 | - | 사진 주소 폼과 구입 버튼이 표시된다. |
-| 마이 페이지 | General | 다음의 내용이 표시된다.
-- 나의 정보: 닉네임, 지갑주소
-- 토큰(FT) 개수
-- 나의 NFT
-- 작성한 게시글 |
-|  | 토큰 전송 | 상대방 계정, 보낼 토큰 개수를 입력할 수 있는 칸이 표시된다. |
 
----
+<img width="709" alt="스크린샷 2022-08-30 오후 5 06 46" src="https://user-images.githubusercontent.com/99964401/187392230-8b990b1d-af26-438a-8e00-374e469811e1.png">
+
+
+<br/>
 
 ## 시나리오
 
@@ -241,14 +221,14 @@
 - 보유한 IC토큰과 NFT 전송 기능.
 - 보유한 NFT 판매 기능.
 
----
+<br/>
 
 ## Flow Chart
 
 ![HALP ME Flowchart drawio final](https://user-images.githubusercontent.com/99964401/187382272-fc67e10e-c839-4c98-8f2e-91b359f729f9.png)
 
 
----
+<br/>
 
 ## ER-Diagram
 
@@ -259,9 +239,11 @@
 
 ## API
 
+<img width="629" alt="스크린샷 2022-08-30 오후 5 42 43" src="https://user-images.githubusercontent.com/99964401/187392336-5983b34c-0411-47d7-b2c1-eddd00a77bfd.png">
+<img width="629" alt="스크린샷 2022-08-30 오후 5 43 14" src="https://user-images.githubusercontent.com/99964401/187392357-4c2f6067-d86f-46bd-a92c-387f68090dd1.png">
 
 
----
+<br/>
 
 ## Installation
 
@@ -331,7 +313,7 @@ migrate
 test
 ```
 
----
+<br/>
 
 # 실행 화면
 
@@ -368,3 +350,5 @@ test
 ### My Page
 
 <img width="945" alt="mypage" src="https://user-images.githubusercontent.com/99964401/187382170-d3eba9c8-ae7d-474f-986c-858096510d1c.png">
+
+<br/>
