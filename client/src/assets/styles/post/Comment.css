@@ -1,0 +1,21 @@
+.comment-wrapper {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.comment-title {
+    margin-bottom: .1rem;
+}
+.comment-writer {
+    color: #1F4E5F;
+    font-weight: bold;
+}
+.comment-contents {
+    margin-bottom: .5rem;
+}
+.comment-space {
+    padding: 0.5rem;
+}
+#comment-highlight {
+    background: var(--color-2);
+}

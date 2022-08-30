@@ -4,8 +4,8 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `nickname` varchar(255) UNIQUE NOT NULL,
   `role` int NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL DEFAULT "now()",
-  `updated_at` datetime NOT NULL DEFAULT "now()"
+  `created_at` datetime NOT NULL DEFAULT now(),
+  `updated_at` datetime NOT NULL DEFAULT now()
 );
 
 CREATE TABLE `wallet` (
@@ -20,8 +20,8 @@ CREATE TABLE `NFT` (
   `URI` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `status` int NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL DEFAULT "now()",
-  `updated_at` datetime NOT NULL DEFAULT "now()"
+  `created_at` datetime NOT NULL DEFAULT now(),
+  `updated_at` datetime NOT NULL DEFAULT now()
 );
 
 CREATE TABLE `metadata` (
@@ -37,8 +37,8 @@ CREATE TABLE `post` (
   `category` varchar(255) NOT NULL,
   `status` boolean NOT NULL DEFAULT false,
   `author` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT "now()",
-  `updated_at` datetime NOT NULL DEFAULT "now()"
+  `created_at` datetime NOT NULL DEFAULT now(),
+  `updated_at` datetime NOT NULL DEFAULT now()
 );
 
 CREATE TABLE `comment` (
@@ -47,8 +47,8 @@ CREATE TABLE `comment` (
   `author` varchar(255) NOT NULL,
   `contents` text NOT NULL,
   `status` boolean NOT NULL DEFAULT false,
-  `created_at` datetime NOT NULL DEFAULT "now()",
-  `updated_at` datetime NOT NULL DEFAULT "now()"
+  `created_at` datetime NOT NULL DEFAULT now(),
+  `updated_at` datetime NOT NULL DEFAULT now()
 );
 
 ALTER TABLE `user` ADD FOREIGN KEY (`id`) REFERENCES `wallet` (`owner`);

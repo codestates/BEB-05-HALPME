@@ -1,0 +1,25 @@
+.header-topic {
+    margin: 0.5rem 0;
+}
+.header-topic-value {
+    font-weight: bold;
+}
+.header-title {
+    margin: 1rem 0;
+}
+.header-sub-author {
+    color: #1F4E5F;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+.content {
+    padding: 3rem 0.5rem;
+    white-space: pre-wrap;
+}
+.no-comment {
+    background: white;
+    border-radius: 1rem;
+    color: var(--color-4);
+    padding: 2rem 1rem;
+    text-align: center;
+}

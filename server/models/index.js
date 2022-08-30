@@ -6,12 +6,12 @@ const config = Config.development;
 const db = {};
 
 const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
+  process.env.DB_DATABASE_NAME,
+  process.env.DB_USER_NAME,
+  process.env.DB_USER_PASSWORD,
   {
     dialect: config.dialect,
-    logging: false,
+    logging: true,
   }
 );
 

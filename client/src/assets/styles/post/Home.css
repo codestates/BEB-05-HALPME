@@ -1,0 +1,13 @@
+.Home {
+    margin: auto;
+    width: 80%;
+}
+.post-create-btn {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    text-align: right;
+
+}
+.post-space {
+    padding: 5rem 0;
+}

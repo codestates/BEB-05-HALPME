@@ -2,7 +2,7 @@ import db from "./models/index";
 
 const dbConfig = async () => {
   await db.sequelize
-    .sync({ force: true })
+    .sync({ force: false })
     .then(() => {
       console.log("DB connected");
     })
@@ -43,21 +43,20 @@ const Test = async () => {
 
   const u = await db.User.findAll();
   if (u.length <= 0) {
-    db.User.create({
-      loginId: "korea",
+    await db.User.create({
+      loginId: "admin",
       password: "1234",
-      nickname: "HALP",
-      address: "12345678912345678912345678912345",
-      role: 0,
+      nickname: "admin",
+      role: 1,
     });
   }
 
   const p = await db.Post.findAll();
   if (p.length <= 0) {
-    db.Post.create({
-      title: "안녕하세요 redux에 대해서 궁금한 점이 있습니다.",
+    await db.Post.create({
+      title: "테스트 작성글입니다.",
       id: 1,
-      contents: "안녕하쇼! redux에 대해서 알아보러온 하얼빈의 장첸이오",
+      contents: "내용입니다.",
       category: 1,
       status: 0,
     });
@@ -65,8 +64,8 @@ const Test = async () => {
 
   const w = await db.Wallet.findAll();
   if (p.length <= 0) {
-    db.Wallet.create({
-      address: "0x11512de68B5Be4F1B6Cf43f7Aa0455C2408b203b",
+    await db.Wallet.create({
+      address: "0x03CdDe849c92301a3c8317a792eED5778e1867B8",
       balance: 50,
       id: 1,
     });
@@ -74,10 +73,10 @@ const Test = async () => {
 
   const n = await db.NFT.findAll();
   if (n.length <= 0) {
-    db.NFT.create({
-      URI: "ipfs://imagedesune",
+    await db.NFT.create({
+      URL: "https://en.pimg.jp/054/787/903/1/54787903.jpg",
       price: 5,
-      address: "0x11512de68B5Be4F1B6Cf43f7Aa0455C2408b203b",
+      address: "0x03CdDe849c92301a3c8317a792eED5778e1867B8",
     });
   }
 };

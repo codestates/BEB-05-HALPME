@@ -1,0 +1,32 @@
+#navbar {
+    background: white;
+    height: 4rem;
+    box-shadow: 2px 2px 2px 2px lightgray;
+}
+#nav-brand {
+    font-family: var(--font-1);
+    font-size: large;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+#nav-brand:hover {
+    color: #79A8A9;
+}
+.nav-item {
+    color: black;
+    font-family: var(--font-2);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+.nav-item:hover {
+    color: var(--color-4);
+}
+#logout-modal-btn-2 {
+  font-family: var(--font-2);
+}
+#logout-modal-btn-2:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: #df4759;
+}

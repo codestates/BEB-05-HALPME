@@ -17,13 +17,6 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.color {
-  color: #0F4C81;
-}
-
-.color-bg {
-  background-color: #0F4C81;
-}
 
 .title {
   margin-bottom: 2rem;
@@ -36,7 +29,28 @@
   -webkit-user-select: none;
   user-select: none;
 }
-/* #F4F7F7 */
-/* #AACFD0 */
-/* #79A8A9 */
-/* #1F4E5F */
+#main-btn-sm {
+  background: var(--color-4);
+  border: none;
+  color: white;
+  font-family: var(--font-2);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+#main-btn-sm:hover {
+  background: var(--color-white);
+  color: var(--color-4);
+  outline: var(--color-4);
+}
+#main-btn-lg {
+  background: var(--color-4);
+  border: none;
+  color: white;
+  font-family: var(--font-2);
+  width: 100%;
+}
+#main-btn-lg:hover {
+  background: var(--color-white);
+  color: var(--color-4);
+  outline: var(--color-4);
+}
