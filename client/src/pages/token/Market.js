@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import '../../assets/styles/token/Market.css';
 
-function Market() {
+function Market({ account }) {
   // data
   let [imgUrl, setImgUrl] = useState("")
+  let navigate = useNavigate()
 
   // functions
   let onChangeImgUrl = (e) => {
@@ -16,6 +18,12 @@ function Market() {
     }
     console.log(params)
   }
+
+  useEffect(() => {
+    if (!account.id) {
+      navigate('/signin', { reload: true })
+    }
+  }, [])
 
   // views
   return (
@@ -33,4 +41,4 @@ function Market() {
   );
 }
 
-export default Market;
+export default Market

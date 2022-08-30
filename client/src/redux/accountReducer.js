@@ -1,4 +1,7 @@
-const initialState = {}
+const initialState = {
+    id: null,
+    nickname: null
+}
 
 // actions
 export const SET_ACCOUNT = "SET_ACCOUNT"

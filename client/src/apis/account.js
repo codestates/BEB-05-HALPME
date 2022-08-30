@@ -1,6 +1,5 @@
 import axios from "axios";
-
-let SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export async function signupAPI(loginId, password, nickname) {
   try {
@@ -11,7 +10,7 @@ export async function signupAPI(loginId, password, nickname) {
         loginId: loginId,
         password: password,
         nickname: nickname,
-      },
+      }
     });
     return res.data;
   } catch (error) {
@@ -27,14 +26,34 @@ export async function signinAPI(loginId, password) {
       data: {
         loginId: loginId,
         password: password,
-      },
-      withCredentials: true,
+      }
     });
-    console.log(res);
-    // localStorage.setItem('refresh-token', res.data['refresh-token'])
-    return res;
+    return res.data
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
+  }
+}
+
+export async function getWalletData(id) {
+  try {
+    let res = await axios({
+      url: SERVER_URL + `/api/wallet-data/${id}`,
+      method: "GET",
+    });
+    return res.data
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export async function getMyPosts(id) {
+  try {
+    let res = await axios({
+      url: SERVER_URL + `/api/post-data/${id}`,
+      method: "GET",
+    });
+    return res.data
+  } catch (error) {
     throw new Error(error);
   }
 }

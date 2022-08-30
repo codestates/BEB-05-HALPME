@@ -1,10 +1,12 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 import { PostList } from '../../components'
+import { getPostsSummaryAPI } from "../../apis/post";
 import '../../assets/styles/post/Home.css'
 
-function Home() {
+function Home({ account }) {
   // data
+  let [posts, setPosts] = useState([])
   let navigate = useNavigate()
 
   // functions
@@ -12,13 +14,26 @@ function Home() {
     navigate('/create', { replace: true })
   }
 
+  useEffect(() => {
+    getPostsSummaryAPI()
+    .then((data) => {
+        setPosts(data.data)
+    })
+  }, [])
+
   // views
   return (
     <div className="Home">
-      <div className="post-create-btn">
-        <button className="btn" id="main-btn-sm" onClick={toPostCreate}>게시글 작성</button>
-      </div>
-      <PostList />
+      {
+        account.nickname
+        ? (
+          <div className="post-create-btn">
+            <button className="btn" id="main-btn-sm" onClick={toPostCreate}>게시글 작성</button>
+          </div>
+        )
+        : <div className="post-space"></div>
+      }
+      <PostList posts={posts} />
     </div>
   );
 }

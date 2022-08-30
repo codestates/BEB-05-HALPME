@@ -21,6 +21,11 @@ function Signin() {
   let onChangePassword = (e) => {
     setPassword(e.target.value)
   }
+  let onKeyPress = (e) => {
+    if (e.key == 'Enter') {
+      signin()
+    }
+  }
   let isValidate = () => {
     if (userId.length < 5 || userId.length > 12) {
         setValidationMsg("아이디는 5글자 이상 12글자 이하여야 합니다.")
@@ -39,14 +44,13 @@ function Signin() {
       let hash = crypto.SHA256(password).toString();
       signinAPI(userId, hash)
           .then((res) => {
-              console.log(res)
-              if (res.data.data === null) {
+              if (res.data === null) {
                 setValidationMsg("비밀번호를 확인해주세요.")
               }
               else {
                 let params = {
-                  id: res.data.data.id,
-                  nickname: res.data.data.nickname
+                  id: res.data.id,
+                  nickname: res.data.nickname
                 }
                 dispatch({ type: 'SET_ACCOUNT', data: params});
                 window.location.replace("/")
@@ -69,13 +73,13 @@ function Signin() {
               <Form>
                   <Form.Group as={Row} className="mb-3">
                       <Col sm>
-                          <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} />
+                          <Form.Control type="text" placeholder="User ID" onChange={onChangeUserId} onKeyPress={onKeyPress} />
                       </Col>
                   </Form.Group>
 
                   <Form.Group as={Row} className="mb-3">
                       <Col sm>
-                          <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
+                          <Form.Control type="password" placeholder="Password" onChange={onChangePassword} onKeyPress={onKeyPress} />
                       </Col>
                   </Form.Group>
 

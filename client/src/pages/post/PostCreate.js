@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector } from 'react-redux'
 import {Form, Row, Col, Container} from 'react-bootstrap'
 import { getPostsSummaryAPI, createPostAPI } from "../../apis/post";
 import '../../assets/styles/post/PostCreate.css'
@@ -11,7 +11,7 @@ function PostCreate() {
   let [category, setCategory] = useState("")
   let [contents, setContents] = useState("")
   let [validationMsg, setValidationMsg] = useState("")
-  let dispatch = useDispatch()
+  const account = useSelector(state => state.account);
   let navigate = useNavigate()
 
   // functions
@@ -22,7 +22,6 @@ function PostCreate() {
     setCategory(e.target.value)
   }
   let onChangeContents = (e) => {
-    console.log(e.target.value)
     setContents(e.target.value)
   }
   let isValidate = () => {
@@ -50,11 +49,18 @@ function PostCreate() {
   let createPost = () => {
       if(isValidate()) {
         let contentsTransformed = contents.replace(/(?:\r\n|\r|\n)/g, '<br />') // 줄바꿈에 대한 처리
-        createPostAPI(title, category, contentsTransformed)
+        createPostAPI(account.id, title, category, contentsTransformed)
           .then((data) => {
             let id = data.data.postId
-            dispatch({ type: 'SET_POSTS', data: getPostsSummaryAPI() });
-            window.location.replace(`/detail/${id}`)
+            navigate(
+              `/detail/${id}`,
+              {
+                state: {
+                  post: data.data
+                },
+                replace: true
+              }
+            )
           })
           .catch((err) => {
             console.log(err)
@@ -94,7 +100,7 @@ function PostCreate() {
                 : <span></span>
           }
           <br/>
-          <button className="btn" id="main-btn-lg" onClick={createPost}>작성하기</button>
+          <button className="btn" id="main-btn-lg" type="button" onClick={createPost}>작성하기</button>
         </Form>
       </Container>
     </div>

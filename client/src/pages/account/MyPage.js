@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { MyNFT, MyPost } from '../../components'
+import { getWalletData, getMyPosts } from '../../apis/account';
 import '../../assets/styles/account/MyPage.css'
+import axios from "axios";
 
 function MyPage() {
-  // data
   let account = useSelector((state) => state.account)
+  let [accountAddress, setAccountAddress] = useState("")
+  let [posts, setPosts] = useState([])
   let [transferTo, setTransferTo] = useState("")
   let [transferAmount, setTransferAmount] = useState(0)
   let [validationMsg, setValidationMsg] = useState("")
-  let tokenNum = 5
+  let [tokenNum, setTokenNum] = useState(100)
   let nfts = [
     {
         id: 1,
@@ -31,29 +35,11 @@ function MyPage() {
         owner: 'songzero',
         img_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/9a180a134940265.61dee9a60a053.png'
     },
-    {
-        id: 5,
-        owner: 'songzero',
-        img_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/9a180a134940265.61dee9a60a053.png'
-    },
-    {
-        id: 6,
-        owner: 'songzero',
-        img_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/9a180a134940265.61dee9a60a053.png'
-    },
-    {
-        id: 7,
-        owner: 'songzero',
-        img_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/9a180a134940265.61dee9a60a053.png'
-    },
-    {
-        id: 8,
-        owner: 'songzero',
-        img_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/9a180a134940265.61dee9a60a053.png'
-    }
   ]
+  let navigate = useNavigate()
 
-  // functions
+
+    // functions
   let onChangeAddress = (e) => {
     setTransferTo(e.target.value)
   }
@@ -84,19 +70,35 @@ function MyPage() {
     }
   }
 
+  useEffect(() => {
+    if (!account.id) {
+      navigate('/signin', { reload: true })
+    }
+    getWalletData(account.id)
+      .then((res) => {
+        if (res.data[0]) {
+          setAccountAddress(res.data[0].address)
+        }
+      })
+    getMyPosts(account.id)
+      .then((res) => {
+        setPosts(res.data)
+      })
+  }, [])
+
   // views
   return (
     <div className="MyPage">
       <div className="mypage-header">
         <h2 className="mypage-header-name">{account.nickname}</h2>
         <div className="mypage-header-address">
-          <img className="mypage-header-address-image" src="https://static.opensea.io/general/ETH.svg" alt="Address" />  {account.address}
+          <img className="mypage-header-address-image" src="https://static.opensea.io/general/ETH.svg" alt="Address" />  {accountAddress}
         </div>
       </div>
       <div className="mypage-contents row">
         <div className="mypage-contents-left col col-6">
           <div className="mypage-token">
-            <h5 className="mypage-token-title">My Token: <span className="mypage-token-title-num" title={`You have ${tokenNum} tokens.`}>{tokenNum}</span></h5>
+            <h5 className="mypage-token-title">My Token: <span className="mypage-token-title-num" title={`You have ${tokenNum} tokens.`}>{ tokenNum }</span></h5>
             <div className="mypage-token-box">
               {/* <span className="mypage-token-box-label address">Token Transfer</span> */}
               <input className="mypage-token-box-input-1" type="text" placeholder="지갑 주소" onChange={onChangeAddress} />에
@@ -115,7 +117,7 @@ function MyPage() {
           </div>
           <div className="mypage-posts">
             <h5 className="mypage-posts-title">My Posts</h5>
-            <MyPost />
+            <MyPost posts={posts} />
           </div>
         </div>
         <div className="mypage-contents-right card-group col col-6">
@@ -130,5 +132,5 @@ function MyPage() {
     </div>
   );
 }
-  
-export default MyPage;
+
+export default MyPage

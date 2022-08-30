@@ -16,3 +16,10 @@
     padding: 3rem 0.5rem;
     white-space: pre-wrap;
 }
+.no-comment {
+    background: white;
+    border-radius: 1rem;
+    color: var(--color-4);
+    padding: 2rem 1rem;
+    text-align: center;
+}
