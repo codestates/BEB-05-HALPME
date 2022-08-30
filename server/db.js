@@ -1,4 +1,10 @@
 import db from "./models/index";
+import Web3 from "web3";
+import HALP_TOKEN from "./contract/build/contracts/HALPToken.json";
+const web3 = new Web3(new Web3.providers.HttpProvider(process.env.RPC_URL));
+const abi = HALP_TOKEN.abi;
+const contractAddress = process.env.CONTRACT_ADDRESS;
+const contract = new web3.eth.Contract(abi, contractAddress);
 
 const dbConfig = async () => {
   await db.sequelize
@@ -12,6 +18,9 @@ const dbConfig = async () => {
 };
 // CRUD TEST
 const Test = async () => {
+  const accounts = await web3.eth.getAccounts();
+  const server_address = accounts[0];
+  const balance = await contract.methods.balanceOf(server_address).call();
   // Create Test
   // const cu = await db.User.create({
   //   loginId: "korea",
@@ -65,8 +74,8 @@ const Test = async () => {
   const w = await db.Wallet.findAll();
   if (p.length <= 0) {
     await db.Wallet.create({
-      address: "0x03CdDe849c92301a3c8317a792eED5778e1867B8",
-      balance: 50,
+      address: server_address,
+      balance: balance,
       id: 1,
     });
   }
@@ -76,7 +85,7 @@ const Test = async () => {
     await db.NFT.create({
       URL: "https://en.pimg.jp/054/787/903/1/54787903.jpg",
       price: 5,
-      address: "0x03CdDe849c92301a3c8317a792eED5778e1867B8",
+      address: server_address,
     });
   }
 };
